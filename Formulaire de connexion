@@ -1,1 +1,15 @@
+<!DOCTYPE html>
+<html>
 
+<head> 
+<head>
+
+<body>
+<a href="Connexion">Connexion à votre compte </a><br>
+<form>
+    <label for="identifiant">Identifiant </label><br>
+    <input type="text" id="identifiant" name="identifiant"><br>
+    <label for="motdepasse">Mot de passe</label><br>
+    <input type="text" id="motdepasse" name="motdepasse"><br>
+</form>
+</body>
