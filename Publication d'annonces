@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Publication d'annonce</title>
+</head>
+<body>
 
+    <h1>Publier une annonce</h1>
+    <form action="ma-page.php" method="GET">
+        <label for="localisation">Localisation :</label>
+        <input type="text" id="localisation" name="localisation" maxlength="20" value="Paris" required />
+        <br />
+        <br />
+        <label for="pet-select">Type de l'animal :</label>
+        <select name="animal" id="pet-select">
+            <option value="">--Choisissez une option--</option>
+            <option value="Chien">Chien</option>
+            <option value="Chat">Chat</option>
+            <option value="hamster">Hamster</option>
+            <option value="Perroquet">Perroquet</option>
+            <option value="Poisson(s)">Poisson</option>
+            <option value="Autre">Autre</option>
+        </select>
+        <br />
+        <br />
+        <label for="date">Date de début :</label>
+        <input type="date" id="date de début" name="date1" maxlength="20" value="01/01/2026" required />
+        <br />
+        <br />
+        <label for="heure1">Heure de début :</label>
+        <input type="datetime" id="heure de début" name="heure1" maxlength="20" value="00:00" required />
+        <br />
+        <br />
+        <label for="date2">Date de fin :</label>
+        <input type="date" id="date de fin" name="date2" maxlength="20" value="01/01/2026" required />
+        <br />
+        <br />
+        <label for="heure2">Heure de fin :</label>
+        <input type="datetime" id="heure de fin" name="heure2" maxlength="20" value="00:00" required form="" />
+        <br />
+        <br />
+        <label for="prix">Tarif :</label>
+        <input type="number" id="prix" name="prix" maxlength="10" value="00,00" required />
+        <br />
+        <br />
+        <label for="numéro de téléphone">Numéro de téléphone (facultatif) :</label>
+        <input type="number" id="numérodetéléphone" name="numerodetelephone" maxlength="10" value="" />
+        <br />
+        <br />
+        <button>Validez</button>
+    </form>
+
+</body>
+</html> 
