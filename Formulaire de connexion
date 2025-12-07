@@ -1,15 +1,124 @@
 <!DOCTYPE html>
-<html>
-
-<head> 
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <title>Connexion - Gardiennage d'animaux</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 350px;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #4caf50;
+            box-shadow: 0 0 0 2px rgba(76,175,80,0.15);
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 5px;
+            background: #4caf50;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: #43a047;
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #777777;
+        }
+
+        .footer-text a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
 <body>
-<a href="Connexion">Connexion à votre compte </a><br>
-<form>
-    <label for="identifiant">Identifiant </label><br>
-    <input type="text" id="identifiant" name="identifiant"><br>
-    <label for="motdepasse">Mot de passe</label><br>
-    <input type="text" id="motdepasse" name="motdepasse"><br>
-</form>
+
+<div class="container">
+    <h1>Connexion</h1>
+
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="motdepasse">Mot de passe</label>
+            <input type="password" id="motdepasse" name="motdepasse" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Se connecter</button>
+    </form>
+
+    <div class="footer-text">
+        Pas encore de compte ? <a href="inscription.html">Créer un compte</a>
+    </div>
+</div>
+
 </body>
+</html>
