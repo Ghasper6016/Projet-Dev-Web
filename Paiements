@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement</title>
+
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .payment-container {
+            background: white;
+            padding: 25px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="payment-container">
+        <h2>Paiement sécurisé</h2>
+
+        <form>
+            <label>Numéro de carte</label>
+            <input type="text" maxlength="16" placeholder="1234 5678 9012 3456" required>
+
+            <label>Date d’expiration</label>
+            <input type="month" required>
+
+            <label>Code CVV</label>
+            <input type="password" maxlength="3" placeholder="123" required>
+
+            <button class="btn">Payer</button>
+        </form>
+    </div>
+
+</body>
+</html>
 
