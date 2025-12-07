@@ -157,9 +157,10 @@
     </form>
 
     <div class="footer-text">
-        Vous avez déjà un compte ? <a href="#">Se connecter</a>
+    Vous avez déjà un compte ? <a href="connexion.html">Se connecter</a>
     </div>
 </div>
+
 
 </body>
 </html>
