@@ -13,6 +13,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
 
         .payment-container {
@@ -21,6 +22,8 @@
             width: 350px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            box-sizing: border-box;
         }
 
         h2 {
@@ -40,6 +43,7 @@
             margin-top: 5px;
             border-radius: 6px;
             border: 1px solid #ccc;
+            box-sizing: border-box; /* aligne parfaitement */
         }
 
         .btn {
@@ -57,12 +61,33 @@
         .btn:hover {
             background: #0056b3;
         }
+
+        /* Bouton retour */
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
 <body>
 
     <div class="payment-container">
+
+        <!-- BOUTON RETOUR -->
+        <button class="back-btn" onclick="history.back()">← Retour</button>
+
         <h2>Paiement sécurisé</h2>
 
         <form>
@@ -81,4 +106,5 @@
 
 </body>
 </html>
+
 
