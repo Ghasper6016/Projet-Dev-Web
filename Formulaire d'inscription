@@ -30,7 +30,7 @@
         .container h1 {
             text-align: center;
             margin-bottom: 20px;
-            color: #333333;
+            color: #9d7153;
         }
 
         .container p.subtitle {
@@ -68,7 +68,7 @@
         input[type="tel"]:focus,
         input[type="email"]:focus,
         input[type="password"]:focus {
-            border-color: #4caf50;
+            border-color: #9d7153;
             box-shadow: 0 0 0 2px rgba(76,175,80,0.15);
             outline: none;
         }
@@ -84,8 +84,8 @@
             padding: 10px 12px;
             border: none;
             border-radius: 5px;
-            background: #4caf50;
-            color: #ffffff;
+            background: #9d7153;
+            color: #f5f5dc;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
@@ -94,7 +94,7 @@
         }
 
         .btn-submit:hover {
-            background: #43a047;
+            background: #9d7153;
         }
 
         .footer-text {
@@ -105,7 +105,7 @@
         }
 
         .footer-text a {
-            color: #4caf50;
+            color: #9d7153;
             text-decoration: none;
         }
 
