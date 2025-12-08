@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Recherche d'annonces - Pawmenade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #5cc8a1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #f5f5dc;
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #9d7153;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+        select, input[type="date"], button {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 25px;
+            background-color: #9d7153;
+            border: none;
+            color: #f5f5dc;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #9d7153;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rechercher une annonce</h1>
+        <form action="#" method="get">
+            <label for="type-animal">Type d'animal</label>
+            <select id="type-animal" name="type-animal" required>
+                <option value="" disabled selected>Choisissez un animal</option>
+                <option value="chien">Chien</option>
+                <option value="chat">Chat</option>
+                <option value="rongeur">Rongeur</option>
+                <option value="oiseau">Oiseau</option>
+                <option value="reptile">Reptile</option>
+                <option value="autre">Autre</option>
+            </select>
+
+            <label for="ville">Localisation</label>
+            <input type="text" id="ville" name="ville" placeholder="Entrez une ville ou région" />
+
+            <label for="date-debut">Date de début</label>
+            <input type="date" id="date-debut" name="date-debut" />
+
+            <label for="date-fin">Date de fin</label>
+            <input type="date" id="date-fin" name="date-fin" />
+
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+</body>
+</html>
 
