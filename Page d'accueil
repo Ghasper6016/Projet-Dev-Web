@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <link rel="stylesheet" href="page d'acceuil.css">
-    </head>
-    <header class="navbar"> <!--pour creer le contenu introductif-->
-         <nav class="menu">
+    <header class="navbar"> 
+        <nav class="menu">
             <a href="#">Trouver un petsistter</a>
             <a href="#">Devenir petsistter</a>
             <a href="#">FAQ</a>
@@ -54,30 +51,282 @@
         <div class="texte3">
             <h1> Petsitter pres de chez vous</h1>
         </div>
-        <section class="section2">
-            <div>
-            <h1>Filtres</h1>
-            <h2>Prix minimum(€/h)</h2>
-            <input type="range" id="slider1" min="0" max="100" value="50" oninput="document.getElementById('val1').textContent = this.value">
-            <h2>Type</h2>
-            <input type="radio" id="btn1" name="choix" value="1">
-            <label for="btn1">Promenade</label>
-            <input type="radio" id="btn2" name="choix" value="2">
-            <label for="btn2">Garde a domicile</label>
-            <input type="radio" id="btn3" name="choix" value="3">
-            <label for="btn3">Visites</label>
+        
+            <div class="sec">
+                <aside >
+                    <section>
+                    <h1>Filtres</h1>
+                    <h2>Prix minimum(€/h)</h2>
+                    <input type="range" id="slider1" min="0" max="100" value="50" oninput="document.getElementById('val1').textContent = this.value">
+                    <h2>Type</h2>
+                    <input type="radio" id="btn1" name="choix" value="1">
+                    <label for="btn1">Promenade</label>
+                    <input type="radio" id="btn2" name="choix" value="2">
+                    <label for="btn2">Garde a domicile</label>
+                    <input type="radio" id="btn3" name="choix" value="3">
+                    <label for="btn3">Visites</label>
+                    </section>
 
+                </aside>
+                <main class="main-content">
+                         <div class="hero-right">
+                            <h2>Nos adorables compagnons à garder</h2>
+                            <div class="pet-card">
+                            <img src="pet1.png">
+                            <div>
+                                <h3>Milo</h3>
+                                <p>Calme et doux, idéal pour les familles tranquilles...</p>
+                            </div>
+                            <button>Voir profil</button>
+                        </div>
+
+                        <div class="pet-card">
+                            <img src="pet2.png">
+                            <div>
+                                <h3>Naya</h3>
+                                <p>Grand cœur, pleine d'énergie et de malice...</p>
+                            </div>
+                            <button>Voir profil</button>
+                        </div>
+
+                        <div class="pet-card">
+                            <img src="pet3.png">
+                            <div>
+                                <h3>Sam</h3>
+                                <p>Joueur et joyeux, adore apprendre de nouveaux tours...</p>
+                            </div>
+                            <button>Voir profil</button>
+                        </div>
+
+
+                </main>          
             </div>
             
-            </section>
        
     
     </body>
-    <footer class="footer">
-        <div class="footertexte">
-            <h1>Tu veux devenir petsistter ? </h1>
-            <h2>crée ton profil,indique tes services et commence à recevoir des demamdes.</h2>
-        </div>
+    <section class="cta">
+        <h2>Tu veux devenir Petsitter ?</h2>
+        <p>Crée ton profil, indique tes services et commence à recevoir des demandes.</p>
+        <button class="create-profile"> Créer mon profil </button>
+    </section>
+
+    <footer>
+        <p>© 2025 Pawmenade – Tous droits réservés</p>
     </footer>
 </html>
+<style>
+    .body,html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #faf7f2;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px ;
+    background-color: whitesmoke;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* ombre portée pour effet 3D */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.second{
+    display: flex;
+    justify-items: end;
+    align-items: center;
+    padding: 1px;
+    background-color: whitesmoke;
+}
+.logo-pawmenade{
+    gap: 10px;
+}
+.logoic{
+    width: 35px;
+    padding: 0;
+}
+.logo{
+    width: 90px;
+}
+.titres h1{
+    font-size: 40px;
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #6a4e2f;
+    text-align: center;
+}
+.menu a{
+    margin: 0 15px;
+    text-decoration: none;
+    color: #6a4e2f;
+    font-weight: 500;
+}
+
+.texte2 h1{
+    font-size: 35px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: #8B4513;
+}
+.texte2 h2{
+    font-size: 15px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color:  #A97458;
+}
+
+.gauche{
+    margin-right: 200px;
+    margin-left: 10px;
+    color:gray;
+}
+.droite{
+    color:gray;
+}
+.section1{
+    background-color: white;
+    width: 725px;
+    border-radius: 12px;
+    padding: 12px;
+}
+.texte4{
+  width: 400px;
+  background: white;
+  font-size: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  color: black;
+}
+.mini{
+    display: flex;
+    gap: 41px;
+    background-color: gainsboro;
+    width: 20px;
+    border-radius: 5px;
+    border: gainsboro; 
+}
+
+.bouton{
+    color: white;
+    background-color: #8B4513;
+    padding: 7px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.separator{
+    font-size: 10px;
+    font-weight: bolder;
+}
+.texte3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #8B4513;
+    margin-bottom: 0;
+}
+.sec section{
+    background-color: white;
+    width: 500px;
+    border-radius: 12px;
+    margin: 0;
+    padding: 15px;
+    display: -ms-inline-grid;
+    justify-content: flex-start;
+}
+
+.sec >*:first-child{
+    margin-top: 0;
+}
+.sec input[type="radio"] {
+    display: none; 
+  }
+.sec label {
+    padding: 7px 15px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.2s, color 0.2s;
+  }
+.sec input[type="radio"]:checked + label {
+    background-color:green;
+    color: white;
+  }
+.sec h2{
+    font-size: 12px;
+    color: gray;
+}
+.hero-right {
+    width: 40%;
+}
+.hero-right h2{
+    font-size: 24px;
+    color: #8B4513;
+    white-space: nowrap;
+}
+.pet-card {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px #dcd2c8;
+    width: 400px;
+}
+
+.pet-card img {
+    margin-right: 15px;
+     background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+.sec{
+  display: flex;             
+  align-items: flex-start;   
+  gap:550px;                 
+  padding: 50px;             
+}
+.sidebar {
+  width: 300px;              
+  background: #f8f8f8;
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.05) inset;
+}
+.main-content {
+  flex: 1;                   
+  min-width: 0;              
+}
+.cta {
+    background: #f7e5c5;
+    padding: 25px;
+    text-align: center;
+}
+
+.create-profile {
+    padding: 12px 22px;
+    background: #b09272;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+footer {
+    background: #3a2a1e;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
+</style>
 
