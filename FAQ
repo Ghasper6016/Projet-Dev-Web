@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<body>
 
+    <header class="header">
+        <h1>FAQ – Questions fréquentes</h1>
+        <p>Retrouvez ici les réponses aux questions les plus courantes.</p>
+    </header>
+
+    <section class="faq">
+
+        <details>
+            <summary>Comment créer un compte ?</summary>
+            <p>Pour créer un compte, cliquez sur “S’inscrire” en haut de la page et complétez le formulaire.</p>
+           
+        </details>
+
+        <details>
+            <summary>Comment modifier mes informations ?</summary>
+            <p>Rendez-vous dans votre espace personnel puis cliquez sur “Modifier mon profil”.</p>
+            
+        </details>
+
+        <details>
+            <summary>Comment contacter l’assistance ?</summary>
+            <p>Vous pouvez nous écrire via le formulaire de contact ou par email à support@site.com.</p>
+             
+        </details>
+
+        <details>
+            <summary>Mon mot de passe ne fonctionne pas, que faire ?</summary>
+            <p>Cliquez sur “Mot de passe oublié ?” et suivez les instructions pour le réinitialiser.</p>
+        </details>
+
+    </section>
+
+</body>
+</html>
+
+<style>
+    body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #faf7f2;
+    color: #333;
+}
+
+.header {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* ombre portée pour effet 3D */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.faq {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+details {
+    background: #fff;
+    margin-bottom: 18px;
+    border-radius: 14px;
+    padding: 18px 22px;
+    border: 1px solid #ddd;
+    transition: 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+details:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details p {
+    margin-top: 12px;
+    color: #555;
+    line-height: 1.55;
+    animation: fade 0.3s ease;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(-5px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+</style>
