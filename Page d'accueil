@@ -293,7 +293,7 @@
 .sec{
   display: flex;             
   align-items: flex-start;   
-  gap:550px;                 
+  gap:500px;                 
   padding: 50px;             
 }
 .sidebar {
