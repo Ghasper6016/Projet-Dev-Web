@@ -24,9 +24,7 @@
     </header>
     <body class="body">
         <div class="texte2">
-            <h1> Trouvez le petsistter </h1>
-            <h1> parfait pour votre </h1>
-            <h1> compagnon </h1>
+            <h1> Trouvez le petsistter parfait pour votre compagnon </h1>
             <h2>Reservez facilement un gardien de confiance pres de chez vous</h2>
             <h2>Petsitter,garde a domicile ou visites rapides.</h2>
         </div>
@@ -173,6 +171,8 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
     color: #8B4513;
+    white-space: nowrap;
+    texte-align: center;
 }
 .texte2 h2{
     font-size: 15px;
@@ -180,6 +180,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
     color:  #A97458;
+    texte-align: center;
 }
 
 .gauche{
