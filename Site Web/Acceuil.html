@@ -1,22 +1,307 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Pawmenade</title>
-        <link rel="stylesheet" href="Acceuil.css">
-    </head>
-</html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Pawmenade</title>
+    <link rel="stylesheet" href="Acceuil.css" />
+</head>
 <body>
+
+    <!-- ===== HEADER ===== --> 
     <header>
-        <h1>Pawmenade</h1>
-        <nav>
-            <a href="#">Trouver un Petsitter</a>
-            <a href="#">Devenir Petsistter</a>
-            <a href="#">FAQ</a>
-        </nav>
+        <div class="container header-inner">
+
+            <div class="marque">
+                <img src="img/Logo.png" alt="logo" class="header-logo">
+                <div class="marque-text">
+                    <h1>Pawmenade</h1>
+                    <span class="sous-titre">Trouvez votre Petsitter</span>
+                </div>
+            </div>
+
+            <nav class="main-nav">
+                <a href="#">Trouver un Petsitter</a>
+                <a href="#">Devenir Petsitter</a>
+                <a href="#">FAQ</a>
+            </nav>
+
+            <div class="actions">
+                <button class="signin">Connexion</button>
+                <button class="signup">S'inscrire</button>
+            </div>
+
+        </div>
     </header>
 
+    <!-- ===== MAIN ===== -->
+    <main class="container">
+        <section class="section">
+            <div class="grille-section">
 
+                <!-- COLONNE GAUCHE -->
+                <div>
+                    <h2 class="titre-section">Trouvez le Petsitter parfait pour votre compagnon</h2>
+                    <p class="soustitre-section">
+                        Réservez facilement un gardien de confiance près de chez vous.
+                        Petsitter, garde à domicile, ou visites rapides.
+                    </p>
+
+                    <div class="barre-recherche">
+                        <div class="champ">
+                            <input type="text" placeholder="Ex : PARIS" />
+                        </div>
+                        <span class="label">Du</span>
+                        <input type="date" class="champ" />
+                        <input type="date" class="champ" />
+                        <button class="btn">Chercher</button>
+                    </div>
+
+                    <div class="astuce">
+                        Astuce : essaye “Paris, 75000” ou ton code postal.
+                    </div>
+
+                    <!-- Étapes -->
+                    <div class="etapes">
+
+                        <div class="etape">
+                            <img src="img/C1.png" alt="icône cherche" class="etape-icon">
+                            <h3>1. Cherche</h3>
+                            <p>Filtre selon la distance, le prix et la disponibilité.</p>
+                        </div>
+
+                        <div class="etape">
+                            <img src="img/Co1.png" alt="icône contacte" class="etape-icon">
+                            <h3>2. Contacte</h3>
+                            <p>Discute des besoins et demandes spécifiques.</p>
+                        </div>
+
+                        <div class="etape">
+                            <img src="img/R1.png" alt="icône réserve" class="etape-icon">
+                            <h3>3. Réserve</h3>
+                            <p>Paiement sécurisé et confirmation.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <aside>
+                    <h3 class="soustitre-HD">Nos adorables compagnons à garder</h3>
+
+                    <div class="list-chien">
+
+                        <div class="chien">
+                            <img src="img/image 11.png">
+                            <div class="info">
+                                <h4>Milo</h4>
+                                <p>calme et doux.</p>
+                            </div>
+                            <button class="view">Voir profil</button>
+                        </div>
+
+                        <div class="chien">
+                            <img src="img/image 12.png">
+                            <div class="info">
+                                <h4>Naya</h4>
+                                <p>énergique et curieuse.</p>
+                            </div>
+                            <button class="view">Voir profil</button>
+                        </div>
+
+                        <div class="chien">
+                            <img src="img/image 13.png">
+                            <div class="info">
+                                <h4>Sam</h4>
+                                <p>joueur et affectueux.</p>
+                            </div>
+                            <button class="view">Voir profil</button>
+                        </div>
+
+                    </div>
+
+                    <div class="pagination">
+                        <button>Préc</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>Suiv</button>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- ===== PETSITTERS ===== -->
+        <section class="section">
+            <h2>Petsitters près de chez vous</h2>
+
+            <div class="deux-colonne">
+
+                <aside class="filtre">
+                    <h2>Filtres</h2>
+
+                    <label>Prix maximum (€ / h)</label>
+                    <div class="price-row">
+                        <input type="range" id="priceRange" min="5" max="50" value="20" id="myRange">
+                        <span id="priceOutput" class="price-value">20 €</span>
+                    </div>
+
+                    <label>Disponibilité</label>
+                    <select>
+                        <option>Aujourd'hui</option>
+                        <option>Cette Semaine</option>
+                        <option>Ce Mois-ci</option>
+                    </select>
+
+                    <label>Type</label>
+                    <div class="list-quand">
+                        <button class="chip">Promenade</button>
+                        <button class="chip">Garde à domicile</button>
+                        <button class="chip">Visites</button>
+                    </div>
+                </aside>
+
+                <div>
+
+                    <!-- GRILLE DES PETSITTER -->
+                    <div class="results-grid">
+
+                        <div class="carte">
+                            <img src="img/image 14.png">
+                            <div class="info">
+                                <h4>Julie — Paris 11ᵉ</h4>
+                                <p>15€/h — 5 ans d'expérience</p>
+                                <p>Disponible ce weekend.</p>
+                            </div>
+                            <div class="carte-actions">
+                                <div class="star">★ 4.9</div>
+                                <button class="btn-brown">Voir profil</button>
+                                <button class="btn-green">Contacter</button>
+                            </div>
+                        </div>
+
+                        <div class="carte">
+                            <img src="img/image 16.png">
+                            <div class="info">
+                                <h4>Ghasper — Marseille</h4>
+                                <p>15€/h — 5 ans d'expérience</p>
+                                <p>Disponible ce weekend.</p>
+                            </div>
+                            <div class="carte-actions">
+                                <div class="star">★ 4.9</div>
+                                <button class="btn-brown">Voir profil</button>
+                                <button class="btn-green">Contacter</button>
+                            </div>
+                        </div>
+
+                        <div class="carte">
+                            <img src="img/image 6.png">
+                            <div class="info">
+                                <h4>Christine — Paris 8ᵉ</h4>
+                                <p>15€/h — 5 ans d'expérience</p>
+                                <p>Disponible ce weekend.</p>
+                            </div>
+                            <div class="carte-actions">
+                                <div class="star">★ 4.9</div>
+                                <button class="btn-brown">Voir profil</button>
+                                <button class="btn-green">Contacter</button>
+                            </div>
+                        </div>
+
+                        <div class="carte">
+                            <img src="img/image 6.png">
+                            <div class="info">
+                                <h4>Yanis — Bobigny</h4>
+                                <p>15€/h — 5 ans d'expérience</p>
+                                <p>Disponible ce weekend.</p>
+                            </div>
+                            <div class="carte-actions">
+                                <div class="star">★ 4.9</div>
+                                <button class="btn-brown">Voir profil</button>
+                                <button class="btn-green">Contacter</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="pagination">
+                        <button>Préc</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>Suiv</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="deviens">
+                <div>
+                    <h3>Tu veux devenir Petsitter ?</h3>
+                    <p>Crée ton profil et commence à recevoir des demandes.</p>
+                </div>
+                <button class="signup">Créer mon profil</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-marque">
+                <img src="img/Logo.png" alt="logo" class="footer-logo">
+                <div>
+                    <strong class=",nom-marque">Pawmenade</strong>
+                    <p class="sousti-marque">La communauté des chiens heureux</p>
+                    <p class="marque-desc">
+                        Plateforme de mise en relation entre propriétaires et dogsitters de confiance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Produit</h4>
+                <a href="#">Fonctionnalités</a>
+                <a href="#">Tarifs</a>
+                <a href="#">Sécurité</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Aide</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+                <a href="#">Conditions</a>
+            </div>
+
+            <div class="footer-col social">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2025 Pawmenade — Tous droits réservés
+        </p>
+
+    </footer>
+
+    <script>
+        // script pour le slider 
+        const slider = document.getElementById("priceRange");
+        const output = document.getElementById("priceOutput");
+
+        output.textContent = slider.value + " €";
+
+        slider.oninput = function () {
+            output.textContent = this.value + " €";
+        };
+    </script>
 
 </body>
-
+</html>
