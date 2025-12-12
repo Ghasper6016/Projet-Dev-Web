@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Publication d'annonce</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -65,3 +64,27 @@
 
 </body>
 </html> 
+
+<style>
+body {
+    background-color: #F4F5DC;
+    font-family: Arial;
+    font-weight: bold;
+}
+h1 {
+    color: #987154;
+    font-weight: bolder;
+}
+button {
+    background-color: #987154;
+    color: whitesmoke;
+    height: 30px;
+    width: 200px;
+    margin: 20px;
+    
+}
+    button:hover {
+        background-color: #826148;
+        color: whitesmoke;
+    }
+</style>
