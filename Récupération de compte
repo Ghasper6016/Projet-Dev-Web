@@ -1,1 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Récupération de compte</title>
+    <link rel="stylesheet" href="recuperation.css">
+</head>
+<body>
+    <center><h1>Récupération de compte</h1></center>
+    <br />
+    <br />
+    <form action="ma-page.php" method="GET">
+        <center>
+            <label for="adresse">Adresse :</label>
+            <input type="email" id="email" name="email" maxlength="30" placeholder="Entrez l'email de votre compte" autocomplete="on" size='40' required />
+        <br />
+        <br />
+        <button>J'ai oublié mon mot de passe</button>
+        </center>
+    </form>
 
+</body>
+</html>
