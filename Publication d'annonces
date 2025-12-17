@@ -2,90 +2,183 @@
 <html>
 <head>
     <title>Publication d'annonce</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <center><h1>Publier une annonce</h1></center>
-    <form action="ma-page.php" method="GET">
-        <label for="localisation">Localisation :</label>
-        <input type="text" id="localisation" name="localisation" maxlength="20" placeholder="Entrez une ville" autocomplete="on" required />
-        <br />
-        <br /> 
-        <label for="pet-select">Type de l'animal :</label>
-        <select name="animal" id="pet-select">
-            <option value="">--Choisissez une option--</option>
-            <option value="Chien">Chien</option>
-            <option value="Chat">Chat</option>
-            <option value="hamster">Hamster</option>
-            <option value="Perroquet">Perroquet</option>
-            <option value="Poisson(s)">Poisson</option>
-            <option value="Autre">Autre</option>
-        </select>
-        <br />
-        <br />
-        <label for="type-select">Type d'activité :</label>
-        <select name="activité" id="activité-select">
-            <option value="">--Choisissez une option--</option>
-            <option value="Promenade">Promenade</option>
-            <option value="Gardiennage">Gardiennage</option>
-        </select>
-        <br />
-        <br />
-        <label for="date">Date de début :</label>
-        <input type="date" id="date de début" name="date1" maxlength="20" value="01/01/2026" required />
-        <br />
-        <br />
-        <label for="heure1">Heure de début :</label>
-        <input type="datetime" id="heure de début" name="heure1" maxlength="20" value="00:00" required />
-        <br />
-        <br />
-        <label for="date2">Date de fin :</label>
-        <input type="date" id="date de fin" name="date2" maxlength="20" value="01/01/2026" required />
-        <br />
-        <br />
-        <label for="heure2">Heure de fin :</label>
-        <input type="datetime" id="heure de fin" name="heure2" maxlength="20" value="00:00" required form="" />
-        <br />
-        <br />
-        <label for="prix">Tarif :</label>
-        <input type="text" id="prix" name="prix" maxlength="10" value="00,00€" required />
-        <br />
-        <br />
-        <label for="numéro de téléphone">Numéro de téléphone (facultatif) :</label>
-        <input type="tel" id="numérodetéléphone" name="numerodetelephone" maxlength="10" value="" />
-        <br />
-        <br />
-        <label for="précision">Spécifications à préciser (facultatif) :</label>
-        <input type="text" id="précision" name="précision" maxlength="50" value="" size="50" />
-        <br />
-        <br />
-        <button>Validez </button>
-    </form>
+    <div class="container">
+        
+            <h1>Publier une annonce</h1>
+            <form action="ma-page.php" method="GET">
+                <label for="localisation">Localisation :</label>
+                <input type="text" id="localisation" name="localisation" maxlength="20" placeholder="Entrez une ville" autocomplete="on" required />
+                <br />
+                <br />
+                <label for="pet-select">Type de l'animal :</label>
+                <select name="animal" id="pet-select">
+                    <option value="">--Choisissez une option--</option>
+                    <option value="Chien">Chien</option>
+                    <option value="Chat">Chat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="Perroquet">Perroquet</option>
+                    <option value="Poisson(s)">Poisson</option>
+                    <option value="Autre">Autre</option>
+                </select>
+                <br />
+                <br />
+                <label for="type-select">Type d'activité :</label>
+                <select name="activité" id="activité-select">
+                    <option value="">--Choisissez une option--</option>
+                    <option value="Promenade">Promenade</option>
+                    <option value="Gardiennage">Gardiennage</option>
+                </select>
+                <br />
+                <br />
+                <label for="date">Date de début :</label>
+                <input type="datetime-local" id="date de début" name="date1" maxlength="20" value="01/01/2026" required size="30"/>
+                <br />
+                <br />
+                <label for="date2">Date de fin :</label>
+                <input type="datetime-local" id="date de fin" name="date2" maxlength="20" value="01/01/2026" required />
+                <br />
+                <br />
+                <label for="prix">Tarif :</label>
+                <input type="text" id="prix" name="prix" maxlength="10" value="00,00€" required />
+                <br />
+                <br />
+                <label for="numéro de téléphone">Numéro de téléphone (facultatif) :</label>
+                <input type="tel" id="numérodetéléphone" name="numerodetelephone" maxlength="10" value="" />
+                <br />
+                <br />
+                <label for="précision">Spécifications à préciser (facultatif) :</label>
+                <input type="text" id="précision" name="précision" maxlength="50" value="" size="50" />
+                <br />
+                <br />
+                <center>
+                <button>Validez </button>
+                </center>
+            </form>
+        </div>
 
 </body>
 </html> 
 
 <style>
-    body {
-        background-color: #F4F5DC;
-        font-family: Arial;
-        font-weight: bold;
-    }
-    h1 {
-        color: #987154;
-        font-weight: bolder;
-    }
-    button {
-        background-color: #987154;
-        color: whitesmoke;
-        height: 30px;
-        width: 200px;
-        margin: 20px;
+body {
+    background-color: #F4F5DC;
+    font-family: Arial;
+    font-weight: bold;
+}
+h1 {
+    color: #987154;
+    font-weight: bolder;
+}
+button {
+    background-color: #987154;
+    color: whitesmoke;
+    height: 30px;
+    width: 200px;
+    margin: 20px;
     
-    }
+}
     button:hover {
         background-color: #826148;
         color: whitesmoke;
     }
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-<style/>
+body {
+    margin: 0;
+    padding: 0;
+    background: #F4F5DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #ffffff;
+    width: 500px;
+    padding: 25px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+    .container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #9d7153;
+    }
+
+    .container p.subtitle {
+        text-align: center;
+        font-size: 14px;
+        color: #777777;
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"]
+input[type="datetime-local"]{
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus
+    input[type="datetime-local"]:focus
+    select:focus {
+        border-color: #9d7153;
+        box-shadow: 0 0 0 2px rgba(76,175,80,0.15);
+        outline: none;
+    }
+select{
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+input {
+    display: inline-block;
+}
+
+    input[type="datetime-local"] {
+        width: 300px;
+        padding: 10px 12px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input[type="datetime-local"]:focus {
+        border-color: #9d7153;
+        box-shadow: 0 0 0 2px rgba(76,175,80,0.15);
+        outline: none;
+    }
+
+</style >
