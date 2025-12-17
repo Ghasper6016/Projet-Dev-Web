@@ -238,8 +238,6 @@
                     <ul>
                         <li><a href="#accueil">Accueil</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#produits">Produits</a></li>
-                        <li><a href="#blog">Blog</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -251,7 +249,6 @@
                         <li><a href="#confidentialite">Politique de Confidentialité</a></li>
                         <li><a href="#mentions">Mentions Légales</a></li>
                         <li><a href="#cgu">Conditions Générales</a></li>
-                        <li><a href="#cookies">Gestion des Cookies</a></li>
                         <li><a href="#sitemap">Plan du Site</a></li>
                     </ul>
                 </div>
@@ -260,9 +257,9 @@
                 <div class="footer-section">
                     <h3>Nous Contacter</h3>
                     <div class="contact-info">
-                        <p>📍 123 Rue de Paris, 75001, France</p>
+                        <p>📍 28 Rue de Notre-Dame-des-Champs, 75006 Paris, France</p>
                         <p>📞 <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
-                        <p>✉️ <a href="mailto:info@monsite.com">info@monsite.com</a></p>
+                        <p>✉️ <a href="mailto:pawmenadeofficiel@gmail.com">pawmenadeofficiel@gmail.com</a></p>
                     </div>
                 </div>
 
