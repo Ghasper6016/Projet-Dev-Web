@@ -1050,10 +1050,10 @@
                 <div class="grille-section">
 
                     <div>
-                        <h2 class="titre-section">Trouvez le Petsitter parfait pour votre compagnon</h2>
+                        <h2 class="titre-section">Trouvez une annonce qui vous interesse près de chez vous</h2>
                         <p class="soustitre-section">
-                            Réservez facilement un gardien de confiance près de chez vous.
-                            Petsitter, garde à domicile, ou visites rapides.
+                            Réservez facilement un animal de confiance près de chez vous.
+                            Promenade, garde à domicile, ou visites rapides.
                         </p>
 
                         <div class="barre-recherche">
@@ -1067,25 +1067,25 @@
                         </div>
 
                         <div class="astuce">
-                            Astuce : essaye “Paris, 75000” ou ton code postal.
+                            Astuce : mettez le nom de votre ville ou votre code postal.
                         </div>
 
                         <div class="etapes">
                             <div class="etape">
                                 <img src="img/C1.png" alt="icône cherche" class="etape-icon">
-                                <h3>1. Cherche</h3>
-                                <p>Filtre selon la distance, le prix et la disponibilité.</p>
+                                <h3>1. Cherchez</h3>
+                                <p>Filtrez selon la distance, le prix et la disponibilité.</p>
                             </div>
 
                             <div class="etape">
                                 <img src="img/Co1.png" alt="icône contacte" class="etape-icon">
-                                <h3>2. Contacte</h3>
-                                <p>Discute des besoins et demandes spécifiques.</p>
+                                <h3>2. Contactez</h3>
+                                <p>Discutez avec le propriétaire des besoins de l'animal et demandes spécifiques.</p>
                             </div>
 
                             <div class="etape">
                                 <img src="img/R1.png" alt="icône réserve" class="etape-icon">
-                                <h3>3. Réserve</h3>
+                                <h3>3. Réservez</h3>
                                 <p>Paiement sécurisé et confirmation.</p>
                             </div>
                         </div>
