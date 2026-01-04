@@ -246,10 +246,10 @@
                 <div class="footer-section">
                     <h3>Légal</h3>
                     <ul>
-                        <li><a href="#confidentialite">Politique de Confidentialité</a></li>
-                        <li><a href="#mentions">Mentions Légales</a></li>
-                        <li><a href="#cgu">Conditions Générales</a></li>
-                        <li><a href="#sitemap">Plan du Site</a></li>
+                        <li><a href="CGU%20ML.html#confidentialite">Politique de Confidentialité</a></li>
+                        <li><a href="CGU%20ML.html#mentions">Mentions Légales</a></li>
+                        <li><a href="CGU%20ML.html#cgu">Conditions Générales</a></li>
+                        <li><a href="CGU%20ML.html#sitemap">Plan du Site</a></li>
                     </ul>
                 </div>
 
