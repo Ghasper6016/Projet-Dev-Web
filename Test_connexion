@@ -484,7 +484,7 @@
       align-items: center;
     }
 
-    /* ---- NOUVEAU : cartes pour les propriétaires ---- */
+    /* ---- cartes pour les propriétaires ---- */
     .list-propriétaires {
       display: flex;
       flex-direction: column;
@@ -509,7 +509,7 @@
       object-fit: cover;
     }
 
-    /* ---- NOUVEAU : cartes blanches pour les annonces ---- */
+    /* ---- cartes blanches pour les annonces ---- */
     .annonces {
       background: var(--white);
       padding: 16px;
@@ -525,6 +525,129 @@
       height: 75px;
       border-radius: 10px;
       object-fit: cover;
+    }
+
+    /* -------------------- SECTION PROFIL PROPRIÉTAIRE -------------------- */
+    #profil-proprietaire {
+      margin-top: 40px;
+      margin-bottom: 60px;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: #f0e4cf;
+      display: none;
+    }
+
+    #profil-proprietaire .profil-entete {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    #profil-proprietaire .profil-photo {
+      width: 90px;
+      height: 90px;
+      border-radius: 18px;
+      object-fit: cover;
+      background: #ccc;
+    }
+
+    #profil-proprietaire .profil-infos {
+      flex: 1;
+    }
+
+    #profil-proprietaire .profil-infos h2 {
+      margin: 0 0 4px;
+      font-size: 22px;
+    }
+
+    #profil-proprietaire .profil-infos p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    #profil-proprietaire .profil-note {
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    #profil-proprietaire .profil-contact {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    #profil-proprietaire .profil-contact a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    #profil-proprietaire .profil-contact a:hover {
+      text-decoration: underline;
+    }
+
+    #profil-proprietaire .profil-commentaires {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      font-size: 14px;
+    }
+
+    #profil-proprietaire .profil-commentaires h3 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+
+    #profil-proprietaire .profil-commentaires ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #profil-proprietaire .profil-commentaires li {
+      margin-bottom: 6px;
+    }
+
+    #profil-proprietaire .profil-annonces {
+      margin-top: 24px;
+    }
+
+    #profil-proprietaire .profil-annonces h3 {
+      margin: 0 0 12px;
+    }
+
+    #profil-proprietaire .profil-annonces-liste {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    #profil-proprietaire .profil-annonces-liste .carte-annonce {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 14px;
+    }
+
+    #profil-proprietaire .profil-annonces-liste .carte-annonce h4 {
+      margin: 0 0 4px;
+      font-size: 16px;
+    }
+
+    #profil-proprietaire .btn-retour {
+      margin-bottom: 14px;
+      border: none;
+      background: transparent;
+      color: var(--brown-dark);
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: underline;
     }
 
     /* -------------------- FOOTER -------------------- */
@@ -832,7 +955,6 @@
       text-decoration: underline;
     }
 
-    /* --------- STYLE SPÉCIFIQUE FAQ DANS LA MODALE --------- */
     .faq-header {
       text-align: center;
       padding: 20px 10px;
@@ -928,10 +1050,10 @@
                 <div class="grille-section">
 
                     <div>
-                        <h2 class="titre-section">Trouvez des annonces qui vos correspondent, près de chez vous</h2>
+                        <h2 class="titre-section">Trouvez le Petsitter parfait pour votre compagnon</h2>
                         <p class="soustitre-section">
-                            Réservez facilement un animal de confiance près de chez vous.
-                            Promenades, garde à domicile, ou visites rapides.
+                            Réservez facilement un gardien de confiance près de chez vous.
+                            Petsitter, garde à domicile, ou visites rapides.
                         </p>
 
                         <div class="barre-recherche">
@@ -945,64 +1067,65 @@
                         </div>
 
                         <div class="astuce">
-                            Pour que ce soit plus pratique, mettez le nom de votre ville ou votre code postal.
+                            Astuce : essaye “Paris, 75000” ou ton code postal.
                         </div>
 
                         <div class="etapes">
                             <div class="etape">
                                 <img src="img/C1.png" alt="icône cherche" class="etape-icon">
-                                <h3>1. Cherchez</h3>
-                                <p>Filtrez selon la distance, le prix et la disponibilité.</p>
+                                <h3>1. Cherche</h3>
+                                <p>Filtre selon la distance, le prix et la disponibilité.</p>
                             </div>
 
                             <div class="etape">
                                 <img src="img/Co1.png" alt="icône contacte" class="etape-icon">
-                                <h3>2. Contactez</h3>
-                                <p>Discutez avec le propriétaire des besoins de l'animal et demandes spécifiques.</p>
+                                <h3>2. Contacte</h3>
+                                <p>Discute des besoins et demandes spécifiques.</p>
                             </div>
 
                             <div class="etape">
                                 <img src="img/R1.png" alt="icône réserve" class="etape-icon">
-                                <h3>3. Réservez</h3>
+                                <h3>3. Réserve</h3>
                                 <p>Paiement sécurisé et confirmation.</p>
                             </div>
                         </div>
 
                     </div>
 
+                    <!-- COLONNE DROITE : PROPRIÉTAIRES PRÈS DE CHEZ VOUS -->
                     <aside>
-                        <h3 class="soustitre-HD">Profils qui pourraient vous interesser</h3>
+                        <h3 class="soustitre-HD">Propriétaires près de chez vous</h3>
 
                         <div class="list-propriétaires">
 
-                            <div class="propriétaire">
+                            <div class="propriétaire" data-proprio-id="monique">
                                 <img src="img/image 11.png" alt="Monique">
                                 <div class="info">
                                     <h4>Monique - Paris 11e</h4>
                                     <p>J'ai un gentil petit chien du nom de Milo, je cherche une personne de confiance pour le garder de temps en temps.</p>
                                     <p>Merci de me contacter si vous êtes disponible pour garder mon loulou.</p>
                                 </div>
-                                <button class="view">Voir profil</button>
+                                <button class="view btn-profil">Voir profil</button>
                             </div>
 
-                            <div class="propriétaire">
+                            <div class="propriétaire" data-proprio-id="hugo">
                                 <img src="img/image 12.png" alt="Hugo">
                                 <div class="info">
                                     <h4>Hugo - Issy-les-Moulineaux</h4>
                                     <p>Mon chat est très affectueux et gentil.</p>
-                                    <p>Accepteriez-vous de la garder en mon abscence ? </p>
+                                    <p>Accepteriez-vous de la garder en mon abscence ?</p>
                                 </div>
-                                <button class="view">Voir profil</button>
+                                <button class="view btn-profil">Voir profil</button>
                             </div>
 
-                            <div class="propriétaire">
+                            <div class="propriétaire" data-proprio-id="sam">
                                 <img src="img/image 13.png" alt="Sam">
                                 <div class="info">
                                     <h4>Sam - Paris 2e</h4>
                                     <p>Je pars en vacances et j'aurais vraiment besoin de faire garder mon chien.</p>
                                     <p>Contactez moi si l'annonce vous convient !</p>
                                 </div>
-                                <button class="view">Voir profil</button>
+                                <button class="view btn-profil">Voir profil</button>
                             </div>
 
                         </div>
@@ -1018,6 +1141,7 @@
                 </div>
             </section>
 
+            <!-- ANNONCES -->
             <section class="section">
                 <h2>Annonces près de chez vous</h2>
 
@@ -1050,7 +1174,7 @@
 
                         <div class="results-grid">
 
-                            <div class="annonces">
+                            <div class="annonces" data-proprio-id="monique">
                                 <img src="img/image 14.png" alt="Voltaire">
                                 <div class="info">
                                     <h4>Voltaire - 4 ans</h4>
@@ -1060,12 +1184,12 @@
                                 </div>
                                 <div class="carte-actions">
                                     <div class="star">★ 4.9</div>
-                                    <button class="btn-brown">Voir profil</button>
+                                    <button class="btn-brown btn-profil">Voir profil</button>
                                     <button class="btn-green">Contacter</button>
                                 </div>
                             </div>
 
-                            <div class="annonces">
+                            <div class="annonces" data-proprio-id="hugo">
                                 <img src="img/image 16.png" alt="Milo">
                                 <div class="info">
                                     <h4>Milo - 6 ans</h4>
@@ -1074,12 +1198,12 @@
                                 </div>
                                 <div class="carte-actions">
                                     <div class="star">★ 4.8</div>
-                                    <button class="btn-brown">Voir profil</button>
+                                    <button class="btn-brown btn-profil">Voir profil</button>
                                     <button class="btn-green">Contacter</button>
                                 </div>
                             </div>
 
-                            <div class="annonces">
+                            <div class="annonces" data-proprio-id="sam">
                                 <img src="img/image 17.jpg" alt="Oslo">
                                 <div class="info">
                                     <h4>Oslo — 2 ans</h4>
@@ -1088,21 +1212,22 @@
                                 </div>
                                 <div class="carte-actions">
                                     <div class="star">★ 4.5</div>
-                                    <button class="btn-brown">Voir profil</button>
+                                    <button class="btn-brown btn-profil">Voir profil</button>
                                     <button class="btn-green">Contacter</button>
                                 </div>
                             </div>
 
-                            <div class="carte">
+                            <!-- THOR ATTRIBUÉ À SAM -->
+                            <div class="annonces" data-proprio-id="sam">
                                 <img src="img/image 6.png" alt="Thor">
                                 <div class="info">
                                     <h4>Thor — 8 ans</h4>
-                                    <p>chien calme qui ne sort pas de sa maison, il faut juste lui donner a manger.</p>
+                                    <p>Chien calme qui ne sort pas de sa maison, il faut juste lui donner à manger.</p>
                                     <p>Tarif de 25€.</p>
                                 </div>
                                 <div class="carte-actions">
                                     <div class="star">★ 3.9</div>
-                                    <button class="btn-brown">Voir profil</button>
+                                    <button class="btn-brown btn-profil">Voir profil</button>
                                     <button class="btn-green">Contacter</button>
                                 </div>
                             </div>
@@ -1129,6 +1254,29 @@
                     </button>
                 </div>
 
+            </section>
+
+            <!-- PROFIL PROPRIÉTAIRE -->
+            <section id="profil-proprietaire">
+              <button class="btn-retour" id="btn-retour-profil">← Retour</button>
+              <div class="profil-entete">
+                <img src="" alt="Photo propriétaire" class="profil-photo" id="profil-photo">
+                <div class="profil-infos">
+                  <h2 id="profil-nom"></h2>
+                  <p id="profil-ville"></p>
+                  <p class="profil-note" id="profil-note"></p>
+                  <div class="profil-contact" id="profil-contact"></div>
+                  <div class="profil-commentaires">
+                    <h3>Avis des petsitters</h3>
+                    <ul id="profil-commentaires-liste"></ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="profil-annonces">
+                <h3>Ses annonces</h3>
+                <div class="profil-annonces-liste" id="profil-annonces-liste"></div>
+              </div>
             </section>
 
         </main>
@@ -1188,7 +1336,7 @@
             </div>
         </footer>
 
-    </div> <!-- /#page-content -->
+    </div>
 
     <!-- ===== MODAL CONNEXION ===== -->
     <div class="modal-overlay" id="modal-login">
@@ -1465,6 +1613,156 @@
       }
 
       document.addEventListener('DOMContentLoaded', afficherUtilisateurConnecte);
+
+      // ======== DONNÉES FAKE DES PROPRIÉTAIRES ========
+      const proprietaires = {
+        monique: {
+          id: 'monique',
+          nomComplet: 'Monique Dupont',
+          ville: 'Paris 11e',
+          photo: 'img/image 11.png',
+          note: 4.8,
+          email: 'monique.dupont@example.com',
+          telephone: '06 12 34 56 78',
+          commentaires: [
+            { auteur: 'Julie', texte: 'Toujours ponctuelle, ses animaux sont adorables.', note: 5 },
+            { auteur: 'Paul', texte: 'Communication très facile, maison propre.', note: 4.5 }
+          ],
+          annonces: [
+            {
+              titre: 'Milo – petit chien affectueux',
+              description: 'Besoin de personne de confiance pour faire des promenades avec Milo.',
+              details: 'Prix fixe a la durée de la balade • besoin surtout les samedis.'
+            },
+            {
+              titre: 'Voltaire – chien plein d’énergie',
+              description: 'Cherche un petsitter pour venir garder Voltaire jeudi de 13h à 23h car je suis déplacement.',
+              details: 'Jeudi 13h–23h • 50€ la journée (discutable).'
+            }
+          ]
+        },
+        hugo: {
+          id: 'hugo',
+          nomComplet: 'Hugo Martin',
+          ville: 'Issy-les-Moulineaux',
+          photo: 'img/image 12.png',
+          note: 4.6,
+          email: 'hugo.martin@example.com',
+          telephone: '06 98 76 54 32',
+          commentaires: [
+            { auteur: 'Camille', texte: 'Missy est adorable, propriétaire sérieux.', note: 4.5 }
+          ],
+          annonces: [
+            {
+              titre: 'Naya – jeune chienne joueuse',
+              description: 'Promenades régulières en fin de journée.',
+              details: '15€/promenade • horaires flexibles.'
+            },
+            {
+              titre: 'Missy – chat d’appartement',
+              description: 'Besoin de visites quotidiennes (nourriture et câlins).',
+              details: '12€/visite • période flexible.'
+            }
+          ]
+        },
+        sam: {
+          id: 'sam',
+          nomComplet: 'Sam Leroy',
+          ville: 'Paris 2e',
+          photo: 'img/image 13.png',
+          note: 4.9,
+          email: 'sam.leroy@example.com',
+          telephone: '07 11 22 33 44',
+          commentaires: [
+            { auteur: 'Léa', texte: 'Thor est un amour, tout s’est très bien passé.', note: 5 },
+            { auteur: 'Nina', texte: 'Explications claires, tout est bien organisé.', note: 4.8 }
+          ],
+          annonces: [
+            {
+              titre: 'Sam – chien joueur',
+              description: 'Garde pendant mes vancances.',
+              details: '46€/jour • du 1er au 8 mars.'
+            },
+            {
+              titre: 'Oslo – jeune chat calme',
+              description: 'Chat très doux et affectueux. Disponible ce weekend pour être garder à domicile.',
+              details: '25€/jour • que les week-end.'
+            },
+            {
+              titre: 'Thor – chien calme',
+              description: 'Chien calme qui ne sort pas de sa maison, il faut juste lui donner à manger.',
+              details: '25€/jour • dates flexibles.'
+            }
+          ]
+        }
+      };
+
+      // ======== LOGIQUE D’AFFICHAGE DU PROFIL ========
+      const sectionProfil = document.getElementById('profil-proprietaire');
+      const profilPhoto = document.getElementById('profil-photo');
+      const profilNom = document.getElementById('profil-nom');
+      const profilVille = document.getElementById('profil-ville');
+      const profilNote = document.getElementById('profil-note');
+      const profilContact = document.getElementById('profil-contact');
+      const profilCommentairesListe = document.getElementById('profil-commentaires-liste');
+      const profilAnnoncesListe = document.getElementById('profil-annonces-liste');
+      const btnRetourProfil = document.getElementById('btn-retour-profil');
+
+      function afficherProfilProprietaire(id) {
+        const p = proprietaires[id];
+        if (!p) {
+          alert("Profil introuvable (maquette).");
+          return;
+        }
+
+        profilPhoto.src = p.photo;
+        profilPhoto.alt = p.nomComplet;
+        profilNom.textContent = p.nomComplet;
+        profilVille.textContent = p.ville;
+        profilNote.textContent = `Note moyenne : ${p.note.toFixed(1)} ★`;
+
+        profilContact.innerHTML = `
+          📧 <a href="mailto:${p.email}">${p.email}</a><br>
+          📞 <a href="tel:${p.telephone.replace(/ /g, '')}">${p.telephone}</a>
+        `;
+
+        profilCommentairesListe.innerHTML = '';
+        p.commentaires.forEach(c => {
+          const li = document.createElement('li');
+          li.textContent = `${c.auteur} (${c.note}★) : ${c.texte}`;
+          profilCommentairesListe.appendChild(li);
+        });
+
+        profilAnnoncesListe.innerHTML = '';
+        p.annonces.forEach(a => {
+          const div = document.createElement('div');
+          div.className = 'carte-annonce';
+          div.innerHTML = `
+            <h4>${a.titre}</h4>
+            <p>${a.description}</p>
+            <p style="color: var(--gray)">${a.details}</p>
+          `;
+          profilAnnoncesListe.appendChild(div);
+        });
+
+        sectionProfil.style.display = 'block';
+        sectionProfil.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Boutons "Voir profil"
+      document.querySelectorAll('.btn-profil').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const parent = e.target.closest('[data-proprio-id]');
+          if (!parent) return;
+          const id = parent.getAttribute('data-proprio-id');
+          afficherProfilProprietaire(id);
+        });
+      });
+
+      btnRetourProfil.addEventListener('click', () => {
+        sectionProfil.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     </script>
 
 </body>
