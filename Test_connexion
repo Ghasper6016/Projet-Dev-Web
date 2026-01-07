@@ -1023,11 +1023,13 @@
             <div class="container header-inner">
 
                 <div class="marque">
+                    <a href="Accueil.html#sitemap" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
                     <img src="img/Logo.png" alt="logo" class="header-logo">
                     <div class="marque-text">
                         <h1>Pawmenade</h1>
                         <span class="sous-titre">Trouvez votre Petsitter</span>
                     </div>
+                    </a>
                 </div>
 
                 <nav class="main-nav">
@@ -1309,15 +1311,15 @@
                         <ul>
                             <li><a href="#confidentialite">Politique de Confidentialité</a></li>
                             <li><a href="#mentions">Mentions Légales</a></li>
-                            <li><a href="#cgu">Conditions Générales</a></li>
-                            <li><a href="#sitemap">Plan du Site</a></li>
+                            <li style="list-style: none;"><a href="CGU%20ML.html#confidentialite">Confidentialité</a></li>
+                            <li style="list-style: none;"><a href="CGU%20ML.html#cgu">Conditions</a></li>
                         </ul>
                     </div>
 
                     <div class="footer-section">
                         <h3>Nous Contacter</h3>
                         <div class="contact-info">
-                            <p>📍 28 Rue de Notre-Dame-des-Champs, 75006 Paris, France</p>
+                            <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=28+Rue+de+Notre-Dame-des-Champs+75006+Paris+France" target="_blank">28 Rue de Notre-Dame-des-Champs, 75006 Paris, France</a></p>
                             <p>📞 <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
                             <p>✉️ <a href="mailto:pawmenadeofficiel@gmail.com">pawmenadeofficiel@gmail.com</a></p>
                         </div>
@@ -1416,37 +1418,33 @@
 
     <!-- ===== MODAL FAQ ===== -->
     <div class="modal-overlay" id="modal-faq">
-        <div class="modal-box" style="max-width: 800px%;">
+        <div class="modal-box" style="max-width: 800px; max-height: 90vh; overflow-y: auto;">
             <button class="modal-close" data-close="faq">&times;</button>
 
             <header class="faq-header">
-              <h2>FAQ – Questions fréquentes</h2>
-              <p>Retrouvez ici les réponses aux questions les plus courantes.</p>
-            </header>
-
             <section class="faq">
               <details>
                 <summary>Comment créer un compte ?</summary>
-                <p>Pour créer un compte, cliquez sur “S’inscrire” en haut de la page et complétez le formulaire.</p>
+                <p>Pour créer un compte, cliquez sur "S'inscrire" en haut de la page et complétez le formulaire.</p>
               </details>
 
               <details>
                 <summary>Comment modifier mes informations ?</summary>
-                <p>Rendez-vous dans votre espace personnel puis cliquez sur “Modifier mon profil”.</p>
+                <p>Rendez-vous dans votre espace personnel puis cliquez sur "Modifier mon profil".</p>
               </details>
 
               <details>
-                <summary>Comment contacter l’assistance ?</summary>
+                <summary>Comment contacter l'assistance ?</summary>
                 <p>Vous pouvez nous écrire via le formulaire de contact ou par email à support@site.com.</p>
               </details>
 
               <details>
                 <summary>Mon mot de passe ne fonctionne pas, que faire ?</summary>
-                <p>Cliquez sur “Mot de passe oublié ?” et suivez les instructions pour le réinitialiser.</p>
+                <p>Cliquez sur "Mot de passe oublié ?" et suivez les instructions pour le réinitialiser.</p>
               </details>
             </section>
         </div>
-    </div>
+      </div>
 
     <script>
       // slider prix
