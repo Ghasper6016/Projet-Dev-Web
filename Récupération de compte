@@ -1,1 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Récupération de compte</title>
+    <link rel="stylesheet" href="recuperation.css">
+</head>
+<body>
+    <div class="container">
+        <center><h1>Récupération de compte</h1></center>
+        <br />
+        <br />
+        <form action="ma-page.php" method="GET">
+                <label for="adresse">Adresse :</label>
+                <input type="email" id="email" name="email" maxlength="30" placeholder="Entrez l'email de votre compte" autocomplete="on" size='40' required />
+                <br />
+                <br />
+                <center><button>J'ai oublié mon mot de passe</button></center>
+        </form>
+    </div>
+</body>
+</html>
 
+h1 {
+    color: #987154;
+    font-weight: bolder;
+}
+button {
+    background-color: #987154;
+    color: whitesmoke;
+    height: 30px;
+    width: 200px;
+    margin: 20px;
+}
+
+    button:hover {
+        background-color: #826148;
+        color: whitesmoke;
+    }
+container {
+    background: #ffffff;
+    width: 500px;
+    padding: 25px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #F4F5DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+body {
+    background-color: #F4F5DC;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+h1 {
+    color: #987154;
+    font-weight: bolder;
+}
+
+button {
+    background-color: #987154;
+    color: whitesmoke;
+    height: 40px;
+    width: 200px;
+    margin: 20px;
+}
+
+    button:hover {
+        background-color: #826148;
+        color: whitesmoke;
+    }
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #F4F5DC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #ffffff;
+    width: 500px;
+    padding: 25px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+    .container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #9d7153;
+    }
+
+    .container p.subtitle {
+        text-align: center;
+        font-size: 14px;
+        color: #777777;
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+        border-color: #9d7153;
+        box-shadow: 0 0 0 2px rgba(76,175,80,0.15);
+        outline: none;
+    }
+
+.hint {
+    font-size: 12px;
+    color: #888888;
+    margin-top: 3px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 5px;
+    background: #9d7153;
+    color: #f5f5dc;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background 0.2s;
+}
+
+    .btn-submit:hover {
+        background: #9d7153;
+    }
+
+.footer-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: #777777;
+}
+
+    .footer-text a {
+        color: #9d7153;
+        text-decoration: none;
+    }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+</style >
