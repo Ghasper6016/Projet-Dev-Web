@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages - Pawmenade</title>
+</head>
+<body>
+
+    <!-- ===== CONTAINER PRINCIPAL ===== -->
+    <div class="c">
+        
+        <!-- ===== HEADER ===== -->
+        <div class="h">
+            <h1 class="t">Bonjour Petsitter</h1>
+            
+            <div class="ic">
+                <!-- Cloche avec badge -->
+                <span class="bell" onclick="tN()">
+                    🔔
+                    <span class="badge">3</span>
+                </span>
+
+                <!-- Menu burger -->
+                <span class="menu" onclick="tM()">☰</span>
+            </div>
+        </div>
+        
+        <!-- ===== ONGLETS ===== -->
+        <div class="tabs">
+            <span>Messages</span>
+        </div>
+        
+        <!-- ===== FILTRES ===== -->
+        <div class="f">
+            <button class="active" id="rb" onclick="tR()">Non lus ▼</button>
+            <button onclick="oS()">Utilisateurs ▼</button>
+            <button id="sb" onclick="tS()">Services ▼</button>
+            
+            <!-- Menu déroulant services -->
+            <div class="sm" id="smenu">
+                <label>
+                    <input type="checkbox" value="promenade" onchange="fS()">
+                    Promenade
+                </label>
+                <label>
+                    <input type="checkbox" value="garde" onchange="fS()">
+                    Garde à domicile
+                </label>
+                <label>
+                    <input type="checkbox" value="visite" onchange="fS()">
+                    Visite
+                </label>
+            </div>
+        </div>
+        
+        <!-- ===== LISTE DES MESSAGES ===== -->
+        <div class="msgs">
+            
+            <!-- Message 1 -->
+            <div class="m unread" data-service="promenade">
+                <img src="https://robohash.org/Julie.png?set=set4&size=150x150" alt="Julie">
+                <div class="mi">
+                    <h3>
+                        Julie — Paris, IDF 
+                        <span class="sb promenade">Promenade</span>
+                    </h3>
+                    <p>Oui je serais disponible la semaine pro...</p>
+                </div>
+                <div class="mt">2 min ✓</div>
+            </div>
+            
+            <!-- Message 2 -->
+            <div class="m unread" data-service="garde">
+                <img src="https://robohash.org/Cheyenne.png?set=set4&size=150x150" alt="Cheyenne">
+                <div class="mi">
+                    <h3>
+                        Cheyenne - Marseille 
+                        <span class="sb garde">Garde à domicile</span>
+                    </h3>
+                    <p>Bonjour, oui toujours dispo por du week-end.</p>
+                </div>
+                <div class="mt">10:14 ✓</div>
+            </div>
+            
+            <!-- Message 3 -->
+            <div class="m" data-service="visite">
+                <img src="https://robohash.org/Thomas.png?set=set4&size=150x150" alt="Thomas">
+                <div class="mi">
+                    <h3>
+                        Thomas - Nanterre 
+                        <span class="sb visite">Visite</span>
+                    </h3>
+                    <p>Je vous envoie des nouvelles de Moustic !</p>
+                </div>
+                <div class="mt">09:20 ✓</div>
+            </div>
+            
+            <!-- Message 4 -->
+            <div class="m unread" data-service="promenade">
+                <img src="https://robohash.org/Victor.png?set=set4&size=150x150" alt="Victor">
+                <div class="mi">
+                    <h3>
+                        Victor - Levallois 
+                        <span class="sb promenade">Promenade</span>
+                    </h3>
+                    <p>Ok, je prends note, merci :)</p>
+                </div>
+                <div class="mt">10:00 ✓</div>
+            </div>
+            
+            <!-- Message 5 -->
+            <div class="m" data-service="garde">
+                <img src="https://robohash.org/Laura.png?set=set4&size=150x150" alt="Laura">
+                <div class="mi">
+                    <h3>
+                        Laura - Montreuil 
+                        <span class="sb garde">Garde à domicile</span>
+                    </h3>
+                    <p>Stéphanie super expérience</p>
+                </div>
+                <div class="mt">Hier</div>
+            </div>
+            
+        </div>
+        
+        <!-- ===== PAGINATION ===== -->
+        <div class="pg">
+            <button>‹</button>
+            <button>›</button>
+        </div>
+        
+    </div>
+
+    <!-- ===== POPUP RECHERCHE ===== -->
+    <div class="sp" id="sp">
+        <div class="sb2">
+            <h3>Rechercher un utilisateur</h3>
+            <input 
+                type="text" 
+                id="si" 
+                placeholder="Entrez le nom de l'utilisateur..." 
+                onkeypress="if(event.key==='Enter')sU()"
+            >
+            <button onclick="sU()">Rechercher</button>
+            <button class="cancel" onclick="cS();rS()">Annuler</button>
+        </div>
+    </div>
+
+    <!-- ===== PANNEAU NOTIFICATIONS ===== -->
+    <div class="np" id="np">
+        
+        <div class="nh">
+            <h2>Notifications</h2>
+            <span class="cl" onclick="tN()">×</span>
+        </div>
+        
+        <!-- Notification 1 -->
+        <div class="ni unread">
+            <h4>Nouveau message de Julie</h4>
+            <p>Julie vous a envoyé un message concernant une promenade</p>
+            <div class="nt">Il y a 2 min</div>
+        </div>
+        
+        <!-- Notification 2 -->
+        <div class="ni unread">
+            <h4>Demande de garde acceptée</h4>
+            <p>Cheyenne a accepté votre demande pour ce week-end</p>
+            <div class="nt">Il y a 15 min</div>
+        </div>
+        
+        <!-- Notification 3 -->
+        <div class="ni unread">
+            <h4>Rappel : Rendez-vous demain</h4>
+            <p>N'oubliez pas votre rendez-vous avec Thomas à 14h</p>
+            <div class="nt">Il y a 1h</div>
+        </div>
+        
+        <!-- Notification 4 -->
+        <div class="ni">
+            <h4>Paiement effectué</h4>
+            <p>Votre paiement de 45€ a été validé</p>
+            <div class="nt">Hier à 18:30</div>
+        </div>
+        
+        <!-- Notification 5 -->
+        <div class="ni">
+            <h4>Nouvelle évaluation reçue</h4>
+            <p>Laura a laissé une évaluation 5 étoiles</p>
+            <div class="nt">Il y a 2 jours</div>
+        </div>
+        
+    </div>
+
+    <!-- ===== MENU LATÉRAL ===== -->
+    <div class="sd" id="sm">
+        
+        <div class="mh">
+            <h2>Menu</h2>
+            <span class="cl" onclick="tM()">×</span>
+        </div>
+        
+        <!-- Section Navigation -->
+        <div class="ms">
+            <h3>Navigation</h3>
+            <a href="#" class="mi2">Trouver un Petsitter</a>
+            <a href="#" class="mi2">Devenir Petsitter</a>
+        </div>
+        
+        <!-- Section Mon Compte -->
+        <div class="ms">
+            <h3>Mon Compte</h3>
+            <a href="#" class="mi2">Mon Profil</a>
+            <a href="#" class="mi2">Paramètres</a>
+        </div>
+        
+        <!-- Section Aide -->
+        <div class="ms">
+            <h3>Aide</h3>
+            <a href="#" class="mi2">FAQ</a>
+            <a href="#" class="mi2">Nous Contacter</a>
+        </div>
+        
+        <!-- Déconnexion -->
+        <div class="mf">
+            <button onclick="lo()">Se Déconnecter</button>
+        </div>
+        
+    </div>
+</body>
+</html>

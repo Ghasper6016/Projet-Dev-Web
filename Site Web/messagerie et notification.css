@@ -1,0 +1,475 @@
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f3ed;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        /* CONTAINER - La boîte principale */
+        .c {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER ===== */
+        .h {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .t {
+            font-size: 42px;
+            font-style: italic;
+            font-weight: bold;
+            color: #a67c52;
+        }
+
+        .ic {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* CLOCHE - Notification avec badge rouge */
+        .bell {
+            position: relative;
+            cursor: pointer;
+            font-size: 26px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e74c3c;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .menu {
+            font-size: 26px;
+            cursor: pointer;
+            color: #a67c52;
+        }
+
+        /* ===== ONGLETS ===== */
+        .tabs {
+            border-bottom: 2px solid #e0d5c7;
+            margin-bottom: 25px;
+        }
+
+        .tabs span {
+            display: inline-block;
+            padding: 12px 0;
+            color: #a67c52;
+            font-weight: 600;
+            font-size: 18px;
+            border-bottom: 3px solid #a67c52;
+        }
+
+        /* ===== FILTRES ===== */
+        .f {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .f button {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 20px;
+            background: #fff;
+            color: #666;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,.08);
+            transition: all .3s;
+        }
+
+        .f button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,.12);
+        }
+
+        .f button.active {
+            background: #a67c52;
+            color: #fff;
+        }
+
+        /* Sous-menu déroulant */
+        .sm {
+            display: none;
+            position: absolute;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.15);
+            padding: 10px;
+            margin-top: 5px;
+            z-index: 100;
+        }
+
+        .sm.show {
+            display: block;
+        }
+
+        .sm label {
+            display: block;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background .2s;
+        }
+
+        .sm label:hover {
+            background: #f5f3ed;
+        }
+
+        .sm input {
+            margin-right: 10px;
+        }
+
+        /* ===== MESSAGES ===== */
+        .msgs {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,.06);
+        }
+
+        /* Un message individuel */
+        .m {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all .2s;
+            margin-bottom: 8px;
+        }
+
+        .m:hover {
+            background: #faf8f4;
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+        }
+
+        .m.unread {
+            background: #e8f5f3;
+            border-left: 4px solid #4db8a8;
+        }
+
+        .m img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #e0d5c7;
+        }
+
+        /* Texte du message */
+        .mi {
+            flex: 1;
+        }
+
+        .mi h3 {
+            font-size: 17px;
+            margin: 0 0 6px 0;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .mi p {
+            margin: 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .mt {
+            color: #999;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ===== BADGES ===== */
+        .sb {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+
+        .sb.promenade {
+            background: #e8ddd6;
+            color: #a67c52;
+        }
+
+        .sb.garde {
+            background: #d4c4bd;
+            color: #8b6f47;
+        }
+
+        .sb.visite {
+            background: #c9e8e3;
+            color: #3d8b7f;
+        }
+
+        /* ===== PAGINATION ===== */
+        .pg {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            align-items: center;
+        }
+
+        .pg button {
+            background: #fff;
+            border: 1px solid #e0d5c7;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #a67c52;
+            font-size: 16px;
+            transition: all .3s;
+        }
+
+        .pg button:hover {
+            background: #a67c52;
+            color: #fff;
+        }
+
+        /* ===== POPUP RECHERCHE ===== */
+        .sp {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sp.show {
+            display: flex;
+        }
+
+        .sb2 {
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            width: 450px;
+            max-width: 90%;
+            box-shadow: 0 10px 40px rgba(0,0,0,.2);
+        }
+
+        .sb2 h3 {
+            margin: 0 0 20px 0;
+            color: #a67c52;
+            font-size: 22px;
+        }
+
+        .sb2 input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0d5c7;
+            border-radius: 10px;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sb2 input:focus {
+            outline: none;
+            border-color: #a67c52;
+        }
+
+        .sb2 button {
+            background: #a67c52;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 15px;
+        }
+
+        .sb2 .cancel {
+            background: #e0d5c7;
+            color: #666;
+        }
+
+        /* ===== PANNEAU NOTIFICATIONS ===== */
+        .np {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 420px;
+            max-width: 90%;
+            height: 100%;
+            background: #fff;
+            box-shadow: -2px 0 20px rgba(0,0,0,.15);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .np.show {
+            display: block;
+        }
+
+        .nh {
+            padding: 25px;
+            border-bottom: 2px solid #e0d5c7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #faf8f4;
+        }
+
+        .nh h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #a67c52;
+            font-style: italic;
+        }
+
+        .cl {
+            cursor: pointer;
+            font-size: 32px;
+            color: #999;
+        }
+
+        /* Une notification */
+        .ni {
+            padding: 18px 25px;
+            border-bottom: 1px solid #f5f3ed;
+        }
+
+        .ni.unread {
+            background: #e8f5f3;
+            border-left: 4px solid #4db8a8;
+        }
+
+        .ni h4 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .ni p {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .nt {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* ===== MENU LATÉRAL ===== */
+        .sd {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 320px;
+            max-width: 85%;
+            height: 100%;
+            background: #fff;
+            box-shadow: -2px 0 20px rgba(0,0,0,.15);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .sd.show {
+            display: block;
+        }
+
+        .mh {
+            padding: 25px;
+            border-bottom: 2px solid #e0d5c7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #faf8f4;
+        }
+
+        .mh h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #a67c52;
+            font-style: italic;
+        }
+
+        /* Sections du menu */
+        .ms {
+            padding: 20px 0;
+            border-bottom: 1px solid #f5f3ed;
+        }
+
+        .ms h3 {
+            padding: 0 25px 10px;
+            margin: 0;
+            font-size: 14px;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .mi2 {
+            padding: 15px 25px;
+            color: #a67c52;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            transition: all .2s;
+            font-size: 16px;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+        }
+
+        .mi2:hover {
+            background: #faf8f4;
+            border-left: 3px solid #a67c52;
+        }
+
+        .mf {
+            padding: 20px 25px;
+            text-align: center;
+        }
+
+        .mf button {
+            background: #a67c52;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+        }
+    
