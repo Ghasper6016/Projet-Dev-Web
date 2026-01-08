@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retour sur la prestation - Petsitting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 450px;
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+    textarea {
+      width: 100%;
+      resize: none;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      transition: 0.2s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+      .stars {
+      font-size: 32px;
+      cursor: pointer;
+      user-select: none;
+      color: #ccc;
+    }
+    .stars .filled {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Votre retour sur la prestation</h2>
+
+    <label>Note du petsitter :</label>
+    <div class="stars" id="starRating">
+      ★★★★★
+    </div>
+    <input type="hidden" id="rating" value="0" />
+
+    <label for="feedback">Commentaire :</label>
+    <textarea id="feedback" rows="5" placeholder="Décrivez votre expérience..."></textarea>
+
+    <button onclick="submitFeedback()">Envoyer</button>
+  </div>
+
+  <script>
+    const starContainer = document.getElementById('starRating');
+    const ratingInput = document.getElementById('rating');
+
+    starContainer.innerHTML = '';
+    for (let i = 1; i <= 5; i++) {
+      const star = document.createElement('span');
+      star.textContent = '★';
+      star.dataset.value = i;
+      star.addEventListener('click', () => {
+        ratingInput.value = i;
+        updateStars(i);
+      });
+      starContainer.appendChild(star);
+    }
+
+    function updateStars(level) {
+      const stars = starContainer.querySelectorAll('span');
+      stars.forEach(star => {
+        star.classList.toggle('filled', star.dataset.value <= level);
+      });
+    }
+    function submitFeedback() {
+      const rating = document.getElementById('rating').value; // updated star rating
+      const feedback = document.getElementById('feedback').value;
+
+      alert(`Merci pour votre retour !\nNote : ${rating}/5\nCommentaire : ${feedback}`);
+    }
+  </script>
+</body>
+</html>
+
