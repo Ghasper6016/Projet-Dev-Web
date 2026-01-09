@@ -1,0 +1,11 @@
+CREATE TABLE Utilisateur (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL,
+    telephone VARCHAR(15) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    motdepasse VARCHAR(255) NOT NULL
+);
+ALTER TABLE utilisateur
+ADD confirmation_code VARCHAR(6),
+ADD est_confirme TINYINT(1) DEFAULT 0;
