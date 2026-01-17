@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages - Pawmenade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* VARIABLES DE LA PAGE D'ACCUEIL */
+        :root {
+            --bg: #f4eedc;
+            --white: #ffffff;
+            --brown: #a06a43;
+            --brown-dark: #7b4f30;
+            --green: #00c7a0;
+            --gray: #7c6f66;
+            --shadow: 0 6px 18px rgba(24,20,18,0.08);
+            --radius: 14px;
+            --wrap: 1180px;
+        }
+
+        /* GLOBAL ADAPTÉ */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--brown-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main { flex: 1; }
+        .container {
+            max-width: var(--wrap);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        img { display: block; }
+        button, input, select { font-family: inherit; }
+
+        /* HEADER IDENTIQUE À L'ACCUEIL */
+        header {
+      background: var(--white);
+      border-bottom: 1px solid #e6dfd4;
+      padding: 25px;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .marque {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-logo {
+      width: 100px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .marque-text h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--brown-dark);
+    }
+
+    .marque-text .sous-titre {
+      margin: 0;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--brown-dark);
+    }
+
+    .main-nav a:hover {
+      color: var(--brown);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .actions .signin {
+      border: none;
+      background: none;
+      font-weight: 600;
+      color: var(--green);
+      cursor: pointer;
+      padding: 6px 10px;
+    }
+
+    .actions .signup {
+      background: var(--brown);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .actions .signup:hover {
+      background: var(--brown-dark);
+    }
+
+    .signup {
+      background: var(--brown);
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+
+        /* CONTENU MESSAGERIE ADAPTÉ */
+        .section {
+            padding: 40px 0;
+        }
+        .onglets {
+            border-bottom: 2px solid #e6dfd4;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+        }
+        .onglets span {
+            display: inline-block;
+            padding: 12px 0;
+            color: var(--brown);
+            font-weight: 600;
+            font-size: 18px;
+            border-bottom: 3px solid var(--brown);
+        }
+        .filtres {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .filtres button {
+            padding: 10px 22px;
+            border: 1px solid #e6dfd4;
+            border-radius: 10px;
+            background: var(--white);
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .filtres button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(24,20,18,0.12);
+            background: var(--white);
+            color: var(--brown);
+        }
+        .filtres button.active {
+            background: var(--brown);
+            color: var(--white);
+            border-color: var(--brown);
+        }
+        .sous-menu {
+            display: none;
+            position: absolute;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 10px;
+            margin-top: 5px;
+            z-index: 100;
+        }
+        .sous-menu.show {
+            display: block;
+        }
+        .sous-menu label {
+            display: block;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .sous-menu label:hover {
+            background: #f8f5f0;
+        }
+        .sous-menu input {
+            margin-right: 10px;
+        }
+        .messages {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        .message {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 12px;
+            border: 1px solid #e6dfd4;
+        }
+        .message:hover {
+            background: #faf8f4;
+            box-shadow: 0 4px 12px rgba(24,20,18,0.1);
+            transform: translateY(-1px);
+        }
+        .message.unread {
+            background: #f0f8f7;
+            border-left: 4px solid var(--green);
+        }
+        .message img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #e6dfd4;
+            object-fit: cover;
+        }
+        .message-info {
+            flex: 1;
+        }
+        .message-info h3 {
+            font-size: 17px;
+            margin: 0 0 6px 0;
+            color: var(--brown-dark);
+            font-weight: 600;
+        }
+        .message-info p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        .message-time {
+            color: var(--gray);
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .service-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+        .service-badge.promenade {
+            background: #f0e8e0;
+            color: var(--brown);
+        }
+        .service-badge.garde {
+            background: #e8dad2;
+            color: var(--brown-dark);
+        }
+        .service-badge.visite {
+            background: #e0f2ef;
+            color: var(--green);
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px auto;
+            align-items: center;
+        }
+        .pagination button {
+            background: var(--white);
+            border: 1px solid #e6dfd4;
+            padding: 10px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: var(--brown);
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+        .pagination button:hover {
+            background: var(--brown);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* POPUPS ADAPTÉS */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-overlay.show {
+            display: flex;
+        }
+        .popup-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            width: 450px;
+            max-width: 90%;
+            box-shadow: 0 12px 40px rgba(24,20,18,0.2);
+        }
+        .popup-box h3 {
+            margin: 0 0 20px 0;
+            color: var(--brown);
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .popup-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e6dfd4;
+            border-radius: 10px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            transition: border-color 0.2s;
+        }
+        .popup-box input:focus {
+            outline: none;
+            border-color: var(--brown);
+            box-shadow: 0 0 0 2px rgba(160,106,67,0.1);
+        }
+        .popup-box button {
+            background: var(--brown);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .popup-box .cancel {
+            background: #e6dfd4;
+            color: var(--gray);
+        }
+
+        /* PANNEAUX LATERAUX ADAPTÉS */
+        .panneau {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 420px;
+            max-width: 90%;
+            height: 100%;
+            background: var(--white);
+            box-shadow: -4px 0 20px rgba(24,20,18,0.15);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .panneau.show { display: block; }
+        .panneau-header {
+            padding: 25px;
+            border-bottom: 1px solid #e6dfd4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #faf8f4;
+        }
+        .panneau-header h2 {
+            margin: 0;
+            font-size: 22px;
+            color: var(--brown);
+            font-weight: 700;
+        }
+        .close {
+            cursor: pointer;
+            font-size: 28px;
+            color: var(--gray);
+            font-weight: 300;
+        }
+        .notification-item,
+        .menu-item {
+            padding: 20px 25px;
+            border-bottom: 1px solid #f8f5f0;
+            transition: background 0.2s;
+        }
+        .notification-item.unread,
+        .menu-item:hover {
+            background: #faf8f4;
+        }
+        .notification-item.unread {
+            border-left: 4px solid var(--green);
+        }
+        .notification-item h4 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: var(--brown-dark);
+        }
+        .notification-item p {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        .notification-time,
+        .menu-section-title {
+            font-size: 13px;
+            color: var(--gray);
+        }
+        .menu-section {
+            padding: 20px 0;
+            border-bottom: 1px solid #f8f5f0;
+        }
+        .menu-section h3 {
+            padding: 0 25px 15px;
+            margin: 0;
+            font-size: 13px;
+            color: var(--gray);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .menu-link {
+            padding: 15px 25px;
+            color: var(--brown);
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 16px;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+        }
+        .menu-link:hover {
+            background: #faf8f4;
+            border-left: 3px solid var(--brown);
+        }
+        .menu-footer {
+            padding: 25px;
+        }
+        .menu-footer button {
+            background: var(--brown);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .main-nav { display: none; }
+            .header-inner { gap: 20px; }
+            .filtres { flex-direction: column; }
+            .container { padding: 0 16px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER IDENTIQUE À L'ACCUEIL (avec Messagerie actif) -->
+
+    <header>
+            <div class="container header-inner">
+
+                <div class="marque">
+                    <img src="img/Logo.png" alt="logo" class="header-logo">
+                    <div class="marque-text">
+                        <h1>Pawmenade</h1>
+                        <span class="sous-titre">Trouvez votre Petsitter</span>
+                    </div>
+                    </a>
+                </div>
+
+                <nav class="main-nav">
+                    <a href="#">Trouver un Petsitter</a>
+                    <a href="#" id="open-signup-nav">Devenir Petsitter</a>
+                    <a href="#" id="open-faq">FAQ</a>
+                    <a href="Messagerie_finale.html" id="open-messagerie">Messagerie</a>
+                </nav>
+
+                <div class="actions" id="header-actions">
+                    <button class="signin" id="open-login">Connexion</button>
+                    <button class="signup" id="open-signup">S'inscrire</button>
+                </div>
+
+            </div>
+        </header>
+
+<!-- ===== CONTENU MESSAGERIE ===== -->
+
+
+    <!-- MAIN MESSAGERIE -->
+    <main class="container">
+        <section class="section">
+            <!-- ONGLETS -->
+            <div class="onglets">
+                <span>Messages</span>
+            </div>
+
+            <!-- FILTRES -->
+            <div class="filtres">
+                <button class="active" id="rb" onclick="toggleRead()">Non lus ▼</button>
+                <button onclick="openSearch()">Utilisateurs ▼</button>
+                <button id="sb" onclick="toggleServices()">Services ▼</button>
+                <!-- Sous-menu services -->
+                <div class="sous-menu" id="smenu">
+                    <label><input type="checkbox" value="promenade" onchange="filterServices()"> Promenade</label>
+                    <label><input type="checkbox" value="garde" onchange="filterServices()"> Garde à domicile</label>
+                    <label><input type="checkbox" value="visite" onchange="filterServices()"> Visite</label>
+                </div>
+            </div>
+
+            <!-- LISTE DES MESSAGES -->
+            <div class="messages">
+                <div class="message unread" data-service="promenade">
+                    <img src="https://robohash.org/Julie.png?set=set4&size=150x150" alt="Julie">
+                    <div class="message-info">
+                        <h3>Julie — Paris, IDF <span class="service-badge promenade">Promenade</span></h3>
+                        <p>Oui je serais disponible la semaine pro...</p>
+                    </div>
+                    <div class="message-time">2 min ✓</div>
+                </div>
+                <div class="message unread" data-service="garde">
+                    <img src="https://robohash.org/Cheyenne.png?set=set4&size=150x150" alt="Cheyenne">
+                    <div class="message-info">
+                        <h3>Cheyenne - Marseille <span class="service-badge garde">Garde à domicile</span></h3>
+                        <p>Bonjour, oui toujours dispo por du week-end.</p>
+                    </div>
+                    <div class="message-time">10:14 ✓</div>
+                </div>
+                <div class="message" data-service="visite">
+                    <img src="https://robohash.org/Thomas.png?set=set4&size=150x150" alt="Thomas">
+                    <div class="message-info">
+                        <h3>Thomas - Nanterre <span class="service-badge visite">Visite</span></h3>
+                        <p>Je vous envoie des nouvelles de Moustic !</p>
+                    </div>
+                    <div class="message-time">09:20 ✓</div>
+                </div>
+                <div class="message unread" data-service="promenade">
+                    <img src="https://robohash.org/Victor.png?set=set4&size=150x150" alt="Victor">
+                    <div class="message-info">
+                        <h3>Victor - Levallois <span class="service-badge promenade">Promenade</span></h3>
+                        <p>Ok, je prends note, merci :)</p>
+                    </div>
+                    <div class="message-time">10:00 ✓</div>
+                </div>
+                <div class="message" data-service="garde">
+                    <img src="https://robohash.org/Laura.png?set=set4&size=150x150" alt="Laura">
+                    <div class="message-info">
+                        <h3>Laura - Montreuil <span class="service-badge garde">Garde à domicile</span></h3>
+                        <p>Stéphanie super expérience</p>
+                    </div>
+                    <div class="message-time">Hier</div>
+                </div>
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="pagination">
+                <button>‹</button>
+                <button>1</button>
+                <button>2</button>
+                <button>›</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- POPUP RECHERCHE -->
+    <div class="popup-overlay" id="search-popup">
+        <div class="popup-box">
+            <h3>Rechercher un utilisateur</h3>
+            <input type="text" id="search-input" placeholder="Entrez le nom de l'utilisateur..." onkeypress="if(event.key==='Enter') searchUser()">
+            <button onclick="searchUser()">Rechercher</button>
+            <button class="cancel" onclick="closeSearch(); resetSearch()">Annuler</button>
+        </div>
+    </div>
+
+    <!-- PANNEAU NOTIFICATIONS (cloche à ajouter si besoin dans header) -->
+    <div class="panneau" id="notifications-panel">
+        <div class="panneau-header">
+            <h2>Notifications</h2>
+            <span class="close" onclick="toggleNotifications()">×</span>
+        </div>
+        <div class="notification-item unread">
+            <h4>Nouveau message de Julie</h4>
+            <p>Julie vous a envoyé un message concernant une promenade</p>
+            <div class="notification-time">Il y a 2 min</div>
+        </div>
+        <div class="notification-item unread">
+            <h4>Demande de garde acceptée</h4>
+            <p>Cheyenne a accepté votre demande pour ce week-end</p>
+            <div class="notification-time">Il y a 15 min</div>
+        </div>
+        <div class="notification-item unread">
+            <h4>Rappel : Rendez-vous demain</h4>
+            <p>N'oubliez pas votre rendez-vous avec Thomas à 14h</p>
+            <div class="notification-time">Il y a 1h</div>
+        </div>
+        <div class="notification-item">
+            <h4>Paiement effectué</h4>
+            <p>Votre paiement de 45€ a été validé</p>
+            <div class="notification-time">Hier à 18:30</div>
+        </div>
+        <div class="notification-item">
+            <h4>Nouvelle évaluation reçue</h4>
+            <p>Laura a laissé une évaluation 5 étoiles</p>
+            <div class="notification-time">Il y a 2 jours</div>
+        </div>
+    </div>
+
+    <!-- MENU LATÉRAL -->
+    <div class="panneau" id="side-menu">
+        <div class="panneau-header">
+            <h2>Menu</h2>
+            <span class="close" onclick="toggleMenu()">×</span>
+        </div>
+        <div class="menu-section">
+            <h3>Navigation</h3>
+            <a href="#" class="menu-link">Trouver un Petsitter</a>
+            <a href="#" class="menu-link">Devenir Petsitter</a>
+        </div>
+        <div class="menu-section">
+            <h3>Mon Compte</h3>
+            <a href="#" class="menu-link">Mon Profil</a>
+            <a href="#" class="menu-link">Paramètres</a>
+        </div>
+        <div class="menu-section">
+            <h3>Aide</h3>
+            <a href="#" class="menu-link">FAQ</a>
+            <a href="#" class="menu-link">Nous Contacter</a>
+        </div>
+        <div class="menu-footer">
+            <button onclick="logout()">Se Déconnecter</button>
+        </div>
+    </div>
+
+    <!-- SCRIPT ADAPTÉ ET INTÉGRÉ -->
+    <script>
+        // Fonctions filtres (identiques mais renommées pour cohérence)
+        function toggleRead() {
+            const btn = document.getElementById('rb');
+            if (btn.classList.contains('active')) {
+                btn.classList.remove('active');
+                btn.textContent = 'Lus ▼';
+            } else {
+                btn.classList.add('active');
+                btn.textContent = 'Non lus ▼';
+            }
+        }
+
+        function openSearch() {
+            document.getElementById('search-popup').classList.add('show');
+            document.getElementById('search-input').focus();
+        }
+
+        function closeSearch() {
+            document.getElementById('search-popup').classList.remove('show');
+            document.getElementById('search-input').value = '';
+        }
+
+        function searchUser() {
+            const value = document.getElementById('search-input').value.toLowerCase().trim();
+            if (value) {
+                const messages = document.querySelectorAll('.message');
+                let found = false;
+                messages.forEach(msg => {
+                    const name = msg.querySelector('h3').textContent.toLowerCase();
+                    if (name.includes(value)) {
+                        msg.style.display = 'flex';
+                        found = true;
+                    } else {
+                        msg.style.display = 'none';
+                    }
+                });
+                if (!found) {
+                    alert('Aucun utilisateur trouvé avec le nom : ' + value);
+                }
+                closeSearch();
+            }
+        }
+
+        function resetSearch() {
+            document.querySelectorAll('.message').forEach(msg => {
+                msg.style.display = 'flex';
+            });
+        }
+
+        // Écoute Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSearch();
+            }
+        });
+
+        function toggleServices() {
+            document.getElementById('smenu').classList.toggle('show');
+        }
+
+        function filterServices() {
+            const checkboxes = document.querySelectorAll('#smenu input[type="checkbox"]');
+            const selected = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+            const messages = document.querySelectorAll('.message');
+            messages.forEach(msg => {
+                const service = msg.getAttribute('data-service');
+                if (selected.length === 0 || selected.includes(service)) {
+                    msg.style.display = 'flex';
+                } else {
+                    msg.style.display = 'none';
+                }
+            });
+        }
+
+        // Fermer menu services si clic dehors
+        document.addEventListener('click', function(e) {
+            const btn = document.getElementById('sb');
+            const menu = document.getElementById('smenu');
+            if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove('show');
+            }
+        });
+
+        // Panneaux (à activer avec cloche/menu burger si ajoutés)
+        function toggleNotifications() {
+            document.getElementById('notifications-panel').classList.toggle('show');
+        }
+
+        function toggleMenu() {
+            document.getElementById('side-menu').classList.toggle('show');
+        }
+
+        function logout() {
+            alert('Déconnexion en cours...');
+            // Intégrez votre logique PHP/redirect ici
+        }
+
+        // Marquer Messagerie actif au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.main-nav a[href="#messagerie"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>
+
