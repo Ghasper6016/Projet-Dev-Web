@@ -1,0 +1,25 @@
+CREATE TABLE evaluation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    
+    annonce_id INT NOT NULL,
+    
+    auteur_id INT NOT NULL,         -- l'utilisateur qui laisse la note
+    destinataire_id INT NOT NULL,   -- l'utilisateur qui reçoit la note
+    
+    note INT NOT NULL,              -- 1 à 5
+    commentaire VARCHAR(255),       -- facultatif
+    
+    date_evaluation DATETIME DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT fk_eval_annonce
+        FOREIGN KEY (annonce_id) REFERENCES annonce(id)
+        ON DELETE CASCADE,
+        
+    CONSTRAINT fk_eval_auteur
+        FOREIGN KEY (auteur_id) REFERENCES utilisateur(id)
+        ON DELETE CASCADE,
+        
+    CONSTRAINT fk_eval_destinataire
+        FOREIGN KEY (destinataire_id) REFERENCES utilisateur(id)
+        ON DELETE CASCADE
+);

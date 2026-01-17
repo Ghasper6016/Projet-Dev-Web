@@ -1,6 +1,4 @@
-<script src="messagerie.js" defer></script>
-<?php include 'menu_lateral.php'; ?>
-<?php
+﻿<?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -24,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $hash = password_hash($motdepasse, PASSWORD_DEFAULT);
     $code = rand(100000, 999999);
 
-    $conn = new mysqli("localhost", "root", "", "utilisateurs");
+    $conn = new mysqli("localhost", "root", "", "bdd");
     if ($conn->connect_error) {
         die("Erreur DB");
     }
@@ -56,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Définir le sujet de l'email
         $mail->Subject = "Confirmation de votre inscription";
 
-        // Définir le corps du message
+        // Définir le corps du message (Utilisez des guillemets doubles pour que \n et $variables fonctionnent)
         $mail->Body = "Bonjour $prenom,\n\nVotre code de confirmation est : $code\n\nMerci !";
 
         // Envoyer l'email
@@ -1104,7 +1102,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="container header-inner">
 
                 <div class="marque">
-                    <a href="Accueil.html#site" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <a href="Accueil.html#sitemap" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
                     <img src="Site Web/img/Logo.png" alt="logo" class="header-logo">
                     <div class="marque-text">
                         <h1>Pawmenade</h1>
@@ -1114,8 +1112,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
 
                 <nav class="main-nav">
-                    <a href="publication_annonce.php">Trouver un Petsitter</a>
-                    <a href="afficher_annonce.php">Chercher une annonce</a>
+                    <a href="#">Trouver un Petsitter</a>
+                    <a href="#" id="open-signup-nav">Devenir Petsitter</a>
                     <a href="#" id="open-faq">FAQ</a>
                 </nav>
 
@@ -1487,7 +1485,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <input type="password" id="signup-confirmation" name="confirmation" required minlength="8">
                 </div>
 
-                <button type="submit" class="modal-btn-submit">Créer mon compte </button>
+                <button type="submit" class="modal-btn-submit">Créer mon compte</button>
             </form>
 
             <div class="modal-footer-text">
@@ -1612,76 +1610,87 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         });
       });
 
-      
-     // --- 1. CONNEXION
-const loginForm = document.querySelector('#modal-login form');
+      // --- FAUSSE INSCRIPTION AVEC localStorage ---
+      const signupForm = document.querySelector('#modal-signup form');
 
-if (loginForm) {
-    loginForm.addEventListener('submit', async (e) => {
+      signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nom = document.getElementById('signup-nom').value;
+        const prenom = document.getElementById('signup-prenom').value;
+        const telephone = document.getElementById('signup-telephone').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+        const confirm = document.getElementById('signup-confirmation').value;
+
+        if (password !== confirm) {
+          alert('Les mots de passe ne correspondent pas.');
+          return;
+        }
+
+        const user = { nom, prenom, telephone, email, password };
+
+        localStorage.setItem('pawmenadeUser', JSON.stringify(user));
+        localStorage.setItem('pawmenadeLoggedIn', 'true');
+
+        alert('Compte créé et connecté (simulation).');
+        closeAllModals();
+        afficherUtilisateurConnecte();
+      });
+
+      // --- FAUSSE CONNEXION ---
+      const loginForm = document.querySelector('#modal-login form');
+
+      loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
 
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('password', password);
-
-        try {
-            const response = await fetch('connexion_action.php', {
-                method: 'POST',
-                body: formData
-            });
-
-            // On vérifie si la réponse est bien du JSON
-            const result = await response.json();
-
-            if (result.success) {
-                // On enregistre les données REÇUES DU SERVEUR
-                localStorage.setItem('pawmenadeLoggedIn', 'true');
-                localStorage.setItem('pawmenadeUser', JSON.stringify({
-                    prenom: result.prenom,
-                    nom: result.nom
-                }));
-
-                alert('Connexion réussie !');
-                closeAllModals();
-                // On rafraîchit la page pour mettre à jour le header
-                window.location.reload(); 
-            } else {
-                alert(result.message);
-            }
-        } catch (error) {
-            console.error("Erreur détaillée :", error);
-            alert("Erreur de communication avec le serveur.");
+        const stored = localStorage.getItem('pawmenadeUser');
+        if (!stored) {
+          alert("Aucun compte n'est enregistré (simulation). Inscris-toi d'abord.");
+          return;
         }
-    });
-}
 
-// --- 2. AFFICHAGE DU HEADER
-function afficherUtilisateurConnecte() {
-    const loggedIn = localStorage.getItem('pawmenadeLoggedIn') === 'true';
-    const stored = localStorage.getItem('pawmenadeUser');
-    const actions = document.getElementById('header-actions');
-
-    if (!actions) return;
-
-    if (loggedIn && stored) {
         const user = JSON.parse(stored);
-        actions.innerHTML = `
-            <span>Bonjour ${user.prenom || 'Utilisateur'}</span>
+
+        if (user.email === email && user.password === password) {
+          localStorage.setItem('pawmenadeLoggedIn', 'true');
+          alert('Connexion réussie (simulation).');
+          closeAllModals();
+          afficherUtilisateurConnecte();
+        } else {
+          alert('Email ou mot de passe incorrect (simulation).');
+        }
+      });
+
+      // --- AFFICHER UTILISATEUR CONNECTÉ DANS LE HEADER ---
+      function afficherUtilisateurConnecte() {
+        const loggedIn = localStorage.getItem('pawmenadeLoggedIn') === 'true';
+        const stored = localStorage.getItem('pawmenadeUser');
+        const actions = document.getElementById('header-actions');
+
+        if (!actions) return;
+
+        if (loggedIn && stored) {
+          const user = JSON.parse(stored);
+          actions.innerHTML = `
+            <span>Bonjour ${user.prenom || user.nom || 'Utilisateur'}</span>
             <button class="signin" id="logout-btn">Se déconnecter</button>
-        `;
+          `;
 
-        document.getElementById('logout-btn').addEventListener('click', () => {
-            localStorage.removeItem('pawmenadeLoggedIn');
-            localStorage.removeItem('pawmenadeUser');
-            window.location.href = 'deconnexion.php';
-        });
-    }
-}
+          const logoutBtn = document.getElementById('logout-btn');
+          logoutBtn.addEventListener('click', () => {
+            localStorage.setItem('pawmenadeLoggedIn', 'false');
+            alert('Déconnecté (simulation).');
+            location.reload();
+          });
+        }
+      }
 
-document.addEventListener('DOMContentLoaded', afficherUtilisateurConnecte);
+      document.addEventListener('DOMContentLoaded', afficherUtilisateurConnecte);
+
       // ======== DONNÉES FAKE DES PROPRIÉTAIRES ========
       const proprietaires = {
         monique: {

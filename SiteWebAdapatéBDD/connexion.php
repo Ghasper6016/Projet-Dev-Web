@@ -1,0 +1,173 @@
+<?php include 'menu_lateral.php'; ?>
+<?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $email = $_POST['email'];
+    $motdepasse = $_POST['motdepasse'];
+
+    $conn = new mysqli("localhost", "root", "", "bdd");
+
+    if ($conn->connect_error) {
+        die("Erreur DB");
+    }
+
+    // 🔑 IMPORTANT : est_confirme = 1
+    $stmt = $conn->prepare("
+        SELECT id, motdepasse
+        FROM utilisateur
+        WHERE email = ? AND est_confirme = 1
+    ");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+
+        $user = $result->fetch_assoc();
+
+        if (password_verify($motdepasse, $user['motdepasse'])) {
+
+            $_SESSION['user_id'] = $user['id'];
+            header("Location: accueil.php");
+            exit;
+
+        } else {
+            $erreur = "Mot de passe incorrect";
+        }
+
+    } else {
+        $erreur = "Compte non confirmé ou email incorrect";
+    }
+}
+?>
+<script src="messagerie.js" defer></script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Gardiennage d'animaux</title>
+    <script src="Site Web/cookie.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f7dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 350px;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #9d7153;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #9d7153;
+            box-shadow: 0 0 0 2px rgba(76,175,80,0.15);
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 5px;
+            background: #9d7153;
+            color: #f5f7dc;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: #9d7153;
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #777777;
+        }
+
+        .footer-text a {
+            color: #9d7153;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Connexion</h1>
+
+    <form id="loginForm" method="POST" action="connexion.php">
+        <div class="form-group">
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="motdepasse">Mot de passe</label>
+            <input type="password" id="motdepasse" name="motdepasse" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Se connecter</button>
+    </form>
+
+    <div class="footer-text">
+        Pas encore de compte ? <a href="inscription.php">Cr�er un compte</a>
+    </div>
+</div>
+
+</body>
+</html>
+
+
