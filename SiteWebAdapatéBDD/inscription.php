@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $hash = password_hash($motdepasse, PASSWORD_DEFAULT);
     $code = rand(100000, 999999);
 
-    $conn = new mysqli("localhost", "root", "", "utilisateurs");
+    $conn = new mysqli("localhost", "root", "", "bdd");
     if ($conn->connect_error) {
         die("Erreur DB");
     }
@@ -152,8 +152,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     .header-logo {
-      width: 60px;
-      height: 60px;
+      width: 100px;
+      height: auto;
       object-fit: contain;
     }
 
@@ -919,7 +919,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       }
     }
 
-    /* ------------- MODALES (CONNEXION / INSCRIPTION / FAQ) ------------- */
+    /* ------------- MODALES (CONNEXION / INSCRIPTION / FAQ / CONF / CGU) ------------- */
 
     .blurred {
       filter: blur(5px);
@@ -1097,15 +1097,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 
-    <div id="page-content">
+    <div id="accueil">
 
-        <!-- ===== HEADER ===== --> 
+        <!-- ===== HEADER ===== -->
         <header>
             <div class="container header-inner">
 
                 <div class="marque">
-                    <a href="Accueil.html#site" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
-                    <img src="Site Web/img/Logo.png" alt="logo" class="header-logo">
+                    <img src="img/Logo.png" alt="logo" class="header-logo">
                     <div class="marque-text">
                         <h1>Pawmenade</h1>
                         <span class="sous-titre">Trouvez votre Petsitter</span>
@@ -1114,9 +1113,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
 
                 <nav class="main-nav">
-                    <a href="publication_annonce.php">Trouver un Petsitter</a>
-                    <a href="afficher_annonce.php">Chercher une annonce</a>
+                    <a href="#">Trouver un Petsitter</a>
+                    <a href="publication_annonce.php">Chercher une annonce</a>
                     <a href="#" id="open-faq">FAQ</a>
+                    <a href="messagerie.php">Messagerie</a>
                 </nav>
 
                 <div class="actions" id="header-actions">
@@ -1155,19 +1155,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         <div class="etapes">
                             <div class="etape">
-                                <img src="Site Web/img/C1.png" alt="icône cherche" class="etape-icon">
+                                <img src="img/C1.png" alt="icône cherche" class="etape-icon">
                                 <h3>1. Cherchez</h3>
                                 <p>Filtrez selon la distance, le prix et la disponibilité.</p>
                             </div>
 
                             <div class="etape">
-                                <img src="Site Web/img/Co1.png" alt="icône contacte" class="etape-icon">
+                                <img src="img/Co1.png" alt="icône contacte" class="etape-icon">
                                 <h3>2. Contactez</h3>
                                 <p>Discutez avec le propriétaire des besoins de l'animal et demandes spécifiques.</p>
                             </div>
 
                             <div class="etape">
-                                <img src="Site Web/img/R1.png" alt="icône réserve" class="etape-icon">
+                                <img src="img/R1.png" alt="icône réserve" class="etape-icon">
                                 <h3>3. Réservez</h3>
                                 <p>Paiement sécurisé et confirmation.</p>
                             </div>
@@ -1182,7 +1182,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <div class="list-propriétaires">
 
                             <div class="propriétaire" data-proprio-id="monique">
-                                <img src="Site Web/img/image 11.png" alt="Monique">
+                                <img src="img/image 11.png" alt="Monique">
                                 <div class="info">
                                     <h4>Monique - Paris 11e</h4>
                                     <p>J'ai un gentil petit chien du nom de Milo, je cherche une personne de confiance pour le garder de temps en temps.</p>
@@ -1192,7 +1192,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
 
                             <div class="propriétaire" data-proprio-id="hugo">
-                                <img src="Site Web/img/image 12.png" alt="Hugo">
+                                <img src="img/image 12.png" alt="Hugo">
                                 <div class="info">
                                     <h4>Hugo - Issy-les-Moulineaux</h4>
                                     <p>Mon chat est très affectueux et gentil.</p>
@@ -1202,7 +1202,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
 
                             <div class="propriétaire" data-proprio-id="sam">
-                                <img src="Site Web/img/image 13.png" alt="Sam">
+                                <img src="img/image 13.png" alt="Sam">
                                 <div class="info">
                                     <h4>Sam - Paris 2e</h4>
                                     <p>Je pars en vacances et j'aurais vraiment besoin de faire garder mon chien.</p>
@@ -1250,6 +1250,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <div class="list-quand">
                             <button class="chip">Promenade</button>
                             <button class="chip">Garde à domicile</button>
+                            <button class="chip">Visite rapide</button>
+                            <button class="chip">Garde en pension</button>
                         </div>
                     </aside>
 
@@ -1258,7 +1260,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <div class="results-grid">
 
                             <div class="annonces" data-proprio-id="monique">
-                                <img src="Site Web/img/image 14.png" alt="Voltaire">
+                                <img src="img/image 14.png" alt="Voltaire">
                                 <div class="info">
                                     <h4>Voltaire - 4 ans</h4>
                                     <p>Cherche un petsitter pour venir garder Voltaire jeudi de 13h à 23h car je suis déplacement.</p>
@@ -1273,7 +1275,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
 
                             <div class="annonces" data-proprio-id="hugo">
-                                <img src="Site Web/img/image 16.png" alt="Milo">
+                                <img src="img/image 16.png" alt="Milo">
                                 <div class="info">
                                     <h4>Milo - 6 ans</h4>
                                     <p>Besoin d'une personne de confiance pour faire des promenades avec Milo.</p>
@@ -1287,7 +1289,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
 
                             <div class="annonces" data-proprio-id="sam">
-                                <img src="Site Web/img/image 17.jpg" alt="Oslo">
+                                <img src="img/image 17.jpg" alt="Oslo">
                                 <div class="info">
                                     <h4>Oslo — 2 ans</h4>
                                     <p>Chat très doux et affectueux</p>
@@ -1302,7 +1304,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                             <!-- THOR ATTRIBUÉ À SAM -->
                             <div class="annonces" data-proprio-id="sam">
-                                <img src="Site Web/img/image 6.png" alt="Thor">
+                                <img src="img/image 6.png" alt="Thor">
                                 <div class="info">
                                     <h4>Thor — 8 ans</h4>
                                     <p>Chien calme qui ne sort pas de sa maison, il faut juste lui donner à manger.</p>
@@ -1355,7 +1357,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                   </div>
                 </div>
               </div>
-
               <div class="profil-annonces">
                 <h3>Ses annonces</h3>
                 <div class="profil-annonces-liste" id="profil-annonces-liste"></div>
@@ -1382,25 +1383,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <h3>Liens Utiles</h3>
                         <ul>
                             <li><a href="#accueil">Accueil</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#" id="open-services-footer">Services</a></li>
+                            <li><a href="#" id="open-contact-footer">Contact</a></li>
                         </ul>
                     </div>
 
                     <div class="footer-section">
                         <h3>Légal</h3>
                         <ul>
-                            <li><a href="#confidentialite">Politique de Confidentialité</a></li>
-                            <li><a href="#mentions">Mentions Légales</a></li>
-                            <li style="list-style: none;"><a href="CGU%20ML.html#confidentialite">Confidentialité</a></li>
-                            <li style="list-style: none;"><a href="CGU%20ML.html#cgu">Conditions</a></li>
+                            <li><a href="#" id="open-confidentialite-link">Politiques de Confidentialité</a></li>
+                            <li><a href="#" id="open-conditions-footer">Conditions Générales</a></li>
+                            <li><a href="#" id="open-mentions-link">Mentions Légales</a></li>
                         </ul>
                     </div>
 
                     <div class="footer-section">
                         <h3>Nous Contacter</h3>
                         <div class="contact-info">
-                            <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=28+Rue+de+Notre-Dame-des-Champs+75006+Paris+France" target="_blank">28 Rue de Notre-Dame-des-Champs, 75006 Paris, France</a></p>
+                            <p>📍 
+                                <a href="https://www.google.com/maps/search/?api=1&query=28+Rue+Notre-Dame-des-Champs+75006+Paris"
+                                    target="_blank">
+                                    28 Rue Notre-Dame-des-Champs, 75006 Paris
+                                </a>
+                            </p>
                             <p>📞 <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
                             <p>✉️ <a href="mailto:pawmenadeofficiel@gmail.com">pawmenadeofficiel@gmail.com</a></p>
                         </div>
@@ -1408,12 +1413,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
 
                 <div class="footer-bottom">
-                    <p>&copy; 2025 Pawmenade. Tous droits réservés.</p>
+                    <p>&copy; 2026 Pawmenade. Tous droits réservés.</p>
                     <div class="footer-links">
-                        <a href="#confidentialite">Confidentialité</a>
-                        <a href="#conditions">Conditions</a>
-                        <a href="#cookies">Cookies</a>
-                        <a href="#sitemap">Plan du site</a>
+                        <a href="#" id="open-confidentialite-footer">Confidentialité</a>
+                        <a href="#" id="open-conditions-footer-bottom">Conditions</a>
                     </div>
                 </div>
             </div>
@@ -1527,93 +1530,601 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
       </div>
 
+    <!-- ===== MODAL CONFIDENTIALITÉ ===== -->
+    <div class="modal-overlay" id="modal-confidentialite">
+      <div class="modal-box" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+        <button class="modal-close" data-close="confidentialite">&times;</button>
+
+        <header style="display:flex;align-items:center;gap:16px;margin-bottom:16px;border-bottom:1px solid #eee;padding-bottom:10px;">
+          <img src="img/Logo.png"
+                alt="Logo Pawmenade"
+                style="width:48px;height:48px;object-fit:contain;border-radius:12px;">
+          <div>
+              <div style="font-weight:700;letter-spacing:0.03em;font-size:1.1rem;">Pawmenade</div>
+              <div style="font-size:0.8rem;color:#7a6a55;">Trouvez votre Petsitter en confiance</div>
+          </div>
+        </header>
+
+        <main style="max-width:900px;margin:0 auto 10px;">
+          <section style="background-color:#ffffff;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.05);padding:20px 18px 24px;">
+            <h1 style="font-size:1.6rem;margin:0 0 8px;color:#b6763c;">Politique de confidentialité</h1>
+            <p style="margin:0 0 16px;font-size:0.95rem;color:#7a6a55;">
+              Cette page explique comment Pawmenade collecte, utilise et protège vos données personnelles.
+            </p>
+            <p style="font-size:0.8rem;color:#8a7c65;margin-bottom:16px;">
+              Dernière mise à jour : 09/01/2026
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">1. Responsable du traitement</h2>
+            <p style="margin:0 0 8px;font-size:0.95rem;">
+              Le responsable du traitement des données personnelles est&nbsp;:
+              Nom / Raison sociale, Adresse complète, E-mail de contact, Téléphone.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">2. Données collectées</h2>
+            <p style="margin:0 0 8px;font-size:0.95rem;">
+              Selon votre utilisation du site, les données suivantes peuvent être collectées :
+            </p>
+            <ul style="margin:0 0 8px 18px;padding:0;font-size:0.95rem;">
+              <li>Données d’identification (nom, prénom, pseudonyme).</li>
+              <li>Données de contact (adresse e-mail, numéro de téléphone).</li>
+              <li>Données de connexion (adresse IP, logs de connexion, type de navigateur).</li>
+              <li>Données liées au service (informations sur les annonces, messages échangés, réservations).</li>
+            </ul>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">3. Finalités du traitement</h2>
+            <p>Les données sont utilisées pour&nbsp;:</p>
+            <ul style="margin:0 0 8px 18px;padding:0;font-size:0.95rem;">
+              <li>Fournir et gérer les services proposés sur le site.</li>
+              <li>Gérer les comptes utilisateurs et la relation avec les membres.</li>
+              <li>Assurer la sécurité du site et prévenir les fraudes.</li>
+              <li>Effectuer des statistiques anonymisées pour améliorer le service.</li>
+            </ul>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">4. Bases légales</h2>
+            <p>Les traitements reposent, selon les cas, sur&nbsp;:</p>
+            <ul style="margin:0 0 8px 18px;padding:0;font-size:0.95rem;">
+              <li>L’exécution d’un contrat ou de mesures précontractuelles.</li>
+              <li>Le respect d’obligations légales.</li>
+              <li>L’intérêt légitime de l’éditeur (amélioration du service, sécurité).</li>
+              <li>Votre consentement lorsque celui-ci est requis.</li>
+            </ul>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">5. Durée de conservation</h2>
+            <p>
+              Les données sont conservées pendant la durée nécessaire à la fourniture du service,
+              augmentée des durées de prescription légales applicables.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">6. Destinataires des données</h2>
+            <p>
+              Les données sont destinées uniquement aux équipes habilitées de Pawmenade et, le cas échéant,
+              à des prestataires techniques intervenant pour le compte de l’éditeur.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">7. Transferts hors Union européenne</h2>
+            <p>
+              Si certains prestataires se situent en dehors de l’Union européenne,
+              l’éditeur s’assure que des garanties appropriées encadrent ces transferts
+              (clauses contractuelles types, encadrement légal).
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">8. Vos droits</h2>
+            <p>
+              Conformément à la réglementation, vous disposez d’un droit d’accès,
+              de rectification, d’effacement, de limitation du traitement, d’opposition
+              et de portabilité de vos données.
+            </p>
+            <p>
+              Vous pouvez également définir des directives relatives au sort de vos données
+              après votre décès. Pour exercer ces droits, vous pouvez contacter l’éditeur
+              aux coordonnées indiquées ci‑dessus.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">9. Cookies et traceurs</h2>
+            <p>
+              Des cookies peuvent être déposés sur votre terminal pour permettre le bon fonctionnement
+              du site, mesurer l’audience ou personnaliser certains contenus.
+            </p>
+            <p>
+              Vous pouvez paramétrer votre navigateur pour accepter ou refuser les cookies,
+              ou être averti avant leur installation.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">10. Sécurité des données</h2>
+            <p>
+              L’éditeur met en œuvre des mesures techniques et organisationnelles appropriées
+              pour protéger les données contre la perte, l’accès non autorisé,
+              la modification ou la divulgation.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:18px;margin-bottom:8px;color:#b6763c;">11. Réclamation auprès de l’autorité de contrôle</h2>
+            <p>
+              En cas de difficulté liée à la gestion de vos données personnelles,
+              vous pouvez introduire une réclamation auprès de l’autorité de contrôle compétente
+              (par exemple, la CNIL en France).
+            </p>
+          </section>
+        </main>
+
+        <footer style="text-align:center;font-size:0.8rem;color:#7a6a55;margin-top:10px;">
+            &copy; 2026 Pawmenade - Tous droits réservés
+        </footer>
+      </div>
+    </div>
+
+    <!-- ===== MODAL CONDITIONS GÉNÉRALES ===== -->
+    <div class="modal-overlay" id="modal-conditions">
+      <div class="modal-box" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+        <button class="modal-close" data-close="conditions">&times;</button>
+
+        <header style="display:flex;align-items:center;gap:16px;margin-bottom:16px;border-bottom:1px solid #eee;padding-bottom:10px;">
+          <img src="img/Logo.png"
+                alt="Logo Pawmenade"
+                style="width:48px;height:48px;object-fit:contain;border-radius:12px;">
+          <div>
+              <div style="font-weight:700;letter-spacing:0.03em;font-size:1.1rem;">Pawmenade</div>
+              <div style="font-size:0.8rem;color:#7a6a55;">Trouvez votre petsitter de confiance</div>
+          </div>
+        </header>
+
+        <main style="max-width:900px;margin:0 auto 10px;">
+          <section style="background-color:#ffffff;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.05);padding:28px 26px 32px;">
+            <h1 style="font-size:1.6rem;margin:0 0 8px;color:#b6763c;">Conditions générales d'utilisation</h1>
+            <p style="margin:0 0 24px;font-size:0.95rem;color:#7a6a55;">
+              Ces conditions encadrent l'utilisation de la plateforme Pawmenade,
+              qui met en relation des propriétaires d'animaux et des petsitters.
+            </p>
+            <p style="font-size:0.8rem;color:#8a7c65;margin-bottom:20px;">
+              Dernière mise à jour : 09/01/2026
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">1. Objet</h2>
+            <p style="margin:0 0 8px;font-size:0.95rem;">
+              Pawmenade est une plateforme de mise en relation entre des propriétaires
+              d'animaux de compagnie et des personnes proposant des services de garde,
+              de promenade ou de visite à domicile.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">2. Acceptation des CGU</h2>
+            <p>
+              En créant un compte ou en utilisant le site, l'utilisateur (propriétaire ou petsitter)
+              accepte pleinement les présentes conditions générales d'utilisation.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">3. Accès au site</h2>
+            <p>
+              Le site est accessible gratuitement aux utilisateurs disposant d'un accès Internet.
+              Les coûts de connexion restent à la charge de l'utilisateur.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">4. Comptes propriétaires et petsitters</h2>
+            <p>
+              Chaque utilisateur s'engage à fournir des informations exactes lors de la création de son profil
+              (description, localisation, informations sur l'animal ou sur les services proposés).
+            </p>
+            <p>
+              Les petsitters garantissent disposer des capacités nécessaires pour s’occuper des animaux
+              qui leur sont confiés.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">5. Utilisation du service</h2>
+            <p>
+              Il est interdit d'utiliser la plateforme pour diffuser des contenus illicites, trompeurs,
+              violents ou contraires au bien-être animal.
+            </p>
+            <p>
+              Les utilisateurs s'engagent à respecter les horaires, tarifs et conditions convenus
+              au moment de la réservation.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">6. Propriété intellectuelle</h2>
+            <p>
+              La marque Pawmenade, le logo, la charte graphique et les contenus du site restent la propriété
+              de l'éditeur ou de ses partenaires.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">7. Données personnelles</h2>
+            <p>
+              Certaines données personnelles (profil, messages, informations sur l’animal)
+              sont collectées pour assurer le bon fonctionnement de la plateforme,
+              conformément à la politique de confidentialité.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">8. Cookies</h2>
+            <p>
+              Des cookies peuvent être utilisés pour sécuriser les connexions,
+              mémoriser vos préférences et mesurer la fréquentation des annonces.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">9. Responsabilité</h2>
+            <p>
+              Pawmenade fournit un outil de mise en relation mais n'est pas partie au contrat
+              conclu entre le propriétaire et le petsitter. Chaque utilisateur reste responsable
+              du respect de ses engagements.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">10. Comportement et bien-être animal</h2>
+            <p>
+              Les propriétaires s'engagent à fournir des informations exactes sur la santé,
+              le caractère et les besoins spécifiques de leur animal.
+            </p>
+            <p>
+              Les petsitters s'engagent à traiter les animaux avec bienveillance
+              et à respecter les consignes données.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">11. Modification des CGU</h2>
+            <p>
+              Pawmenade peut modifier les présentes conditions à tout moment.
+              La version en ligne au moment de la consultation est la seule applicable.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">12. Droit applicable</h2>
+            <p>
+              Les présentes CGU sont soumises au droit français.
+            </p>
+          </section>
+        </main>
+
+        <footer style="text-align:center;font-size:0.8rem;color:#7a6a55;margin-top:10px;">
+            &copy; 2026 Pawmenade - Tous droits réservés
+        </footer>
+      </div>
+    </div>
+
+    <!-- ===== MODAL MENTIONS LÉGALES ===== -->
+    <div class="modal-overlay" id="modal-mentions">
+      <div class="modal-box" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+        <button class="modal-close" data-close="mentions">&times;</button>
+
+        <header style="display:flex;align-items:center;gap:16px;margin-bottom:16px;border-bottom:1px solid #eee;padding-bottom:10px;">
+          <img src="img/Logo.png"
+                alt="Logo Pawmenade"
+                style="width:48px;height:48px;object-fit:contain;border-radius:12px;">
+          <div>
+              <div style="font-weight:700;letter-spacing:0.03em;font-size:1.1rem;">Pawmenade</div>
+              <div style="font-size:0.8rem;color:#7a6a55;">Trouvez votre petsitter de confiance</div>
+          </div>
+        </header>
+
+        <main style="max-width:900px;margin:0 auto 10px;">
+          <section style="background-color:#ffffff;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.05);padding:28px 26px 32px;">
+            <h1 style="font-size:1.6rem;margin:0 0 8px;color:#b6763c;">Mentions légales</h1>
+            <p style="margin:0 0 24px;font-size:0.95rem;color:#7a6a55;">
+              Ces informations permettent d’identifier l’éditeur de la plateforme de petsitting Pawmenade et son hébergeur.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">1. Éditeur du site</h2>
+            <p style="margin:0 0 10px;font-size:0.95rem;">
+              Dénomination : Pawmenade SAS / micro‑entreprise, etc.<br>
+              Adresse du siège : Adresse complète<br>
+              Téléphone : Numéro de téléphone<br>
+              Adresse email : Email de contact pour le support<br>
+              Immatriculation : SIREN / SIRET / RCS<br>
+              Directeur de la publication : Nom, prénom
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">2. Hébergeur</h2>
+            <p style="margin:0 0 10px;font-size:0.95rem;">
+              Hébergeur : Nom de l’hébergeur (ex. OVHcloud, o2switch...)<br>
+              Adresse : Adresse de l’hébergeur<br>
+              Téléphone : Numéro de l’hébergeur
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">3. Activité</h2>
+            <p style="margin:0 0 10px;font-size:0.95rem;">
+              Pawmenade est une plateforme de mise en relation entre propriétaires d’animaux et petsitters indépendants
+              proposant des services de garde, de promenade ou de visite.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">4. Propriété intellectuelle</h2>
+            <p style="margin:0 0 10px;font-size:0.95rem;">
+              La structure générale du site, la marque Pawmenade, les éléments graphiques et les textes
+              sont protégés par la législation en vigueur sur la propriété intellectuelle.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">5. Responsabilité</h2>
+            <p style="margin:0 0 10px;font-size:0.95rem;">
+              L’éditeur ne peut être tenu responsable des dommages résultant de l’utilisation du site
+              ou de la mise en relation entre utilisateurs, ceux‑ci restant seuls responsables
+              des accords conclus entre eux.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">6. Données personnelles</h2>
+            <p style="margin:0 0 10px;font-size:0.95rem;">
+              Les informations concernant la collecte et le traitement des données des utilisateurs
+              sont détaillées dans la politique de confidentialité de Pawmenade.
+            </p>
+
+            <h2 style="font-size:1.1rem;margin-top:22px;margin-bottom:8px;color:#b6763c;">7. Droit applicable</h2>
+            <p style="margin:0;font-size:0.95rem;">
+              Les présentes mentions légales sont soumises au droit français.
+            </p>
+          </section>
+        </main>
+
+        <footer style="text-align:center;font-size:0.8rem;color:#7a6a55;margin-top:10px;">
+            &copy; 2026 Pawmenade - Tous droits réservés
+        </footer>
+      </div>
+    </div>
+
+    <!-- MODAL CONTACT -->
+    <div class="modal-overlay" id="modal-contact">
+        <div class="modal-box" style="max-width: 500px;">
+            <button class="modal-close" data-close="contact">&times;</button>
+            <h2>Contact Pawmenade</h2>
+
+            <p style="margin-bottom: 10px;">
+                <strong>WebProductor</strong><br>
+                <a href="https://www.google.com/maps/search/?api=1&query=28+Rue+Notre-Dame-des-Champs+75006+Paris" 
+                    target="_blank" style="color: #644834;">
+                    28 Rue Notre-Dame-des-Champs, 75006 Paris
+                </a>
+            </p>
+
+            <p style="margin-bottom: 10px;">
+                Téléphone : <a href="tel:0123456789" style="color: #644834;">01 23 45 67 89</a><br>
+                Email : <a href="mailto:pawmenadeoficiel@gmail.com" style="color: #644834;">pawmenadeoficiel@gmail.com</a>
+            </p>
+
+            <p style="font-size: 0.95rem; color: #555; margin-top: 15px;">
+                N'hésitez pas à nous contacter si vous rencontrez le moindre problème 
+                auquel notre FAQ ne répond pas. Notre équipe fera de son mieux pour vous aider.
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL SERVICES -->
+    <div class="modal-overlay" id="modal-services">
+    <div class="modal-box" style="max-width: 700px; max-height: 90vh; overflow-y: auto;">
+        <button class="modal-close" data-close="services">&times;</button>
+        <h2>Nos Services</h2>
+
+        <div style="background: #f8f5f0; padding: 20px; border-radius: 12px; margin: 15px 0;">
+        <p style="font-size: 1rem; line-height: 1.6; color: #555; margin-bottom: 20px;">
+            Pawmenade vous propose une gamme complète de services pour le bien-être de vos animaux de compagnie. 
+            Nos solutions s'adaptent à tous vos besoins, que ce soit pour une simple promenade ou une garde complète.
+        </p>
+        </div>
+
+        <div style="display: grid; gap: 20px; margin-bottom: 20px;">
+        
+        <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #00c7a0; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <h3 style="margin: 0 0 10px; color: #a06a43;">🦮 Promenades</h3>
+            <p style="margin: 0 0 8px; color: #555;">
+            Une balade quotidienne ou ponctuelle pour votre chien. Nos petsitters sortent vos compagnons 30min, 1h ou plus selon vos besoins.
+            </p>
+            <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 0.95rem;">
+            <li>Durée flexible (30min à 2h)</li>
+            <li>Parcs et zones adaptées</li>
+            <li>Rapport détaillé après chaque sortie</li>
+            <li>Tarif : 12-25€/h</li>
+            </ul>
+        </div>
+
+        <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #a06a43; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <h3 style="margin: 0 0 10px; color: #a06a43;">🏠 Garde à Domicile</h3>
+            <p style="margin: 0 0 8px; color: #555;">
+            Votre animal reste chez vous dans son environnement familier. Idéal pour les chats, chiens âgés ou animaux craintifs.
+            </p>
+            <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 0.95rem;">
+            <li>Garde complète (jour/nuit)</li>
+            <li>Alimentation, câlins, jeux</li>
+            <li>Photos/vidéos régulières</li>
+            <li>Tarif : 25-60€/jour</li>
+            </ul>
+        </div>
+
+        <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #00c7a0; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <h3 style="margin: 0 0 10px; color: #a06a43;">⚡ Visites Rapides</h3>
+            <p style="margin: 0 0 8px; color: #555;">
+            Passage express pour nourrir, donner les médicaments ou vérifier que tout va bien. Parfait pour les absences courtes.
+            </p>
+            <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 0.95rem;">
+            <li>15-30 minutes</li>
+            <li>2 à 4 visites/jour</li>
+            <li>Rapport après chaque visite</li>
+            <li>Tarif : 10-18€/visite</li>
+            </ul>
+        </div>
+
+        <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #a06a43; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <h3 style="margin: 0 0 10px; color: #a06a43;">🐱 Garde en Pension</h3>
+            <p style="margin: 0 0 8px; color: #555;">
+            Hébergement chez un petsitter qualifié. Environnement familial pour vos animaux pendant vos absences prolongées.
+            </p>
+            <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 0.95rem;">
+            <li>Chez le petsitter</li>
+            <li>Maximum 2 animaux/pension</li>
+            <li>Promenades incluses</li>
+            <li>Tarif : 35-70€/jour</li>
+            </ul>
+        </div>
+
+        </div>
+
+        <p style="text-align: center; font-size: 0.9rem; color: #888; margin-top: 10px;">
+        Tous nos services sont assurés et vérifiés. Paiement sécurisé garanti.
+        </p>
+      </div>
+    </div>
+
+
     <script>
-      // slider prix
-      const slider = document.getElementById("priceRange");
-      const output = document.getElementById("priceOutput");
-      if (slider && output) {
-        output.textContent = slider.value + " €";
-        slider.oninput = function () {
-          output.textContent = this.value + " €";
+        // ===== SLIDER PRIX =====
+        const slider = document.getElementById("priceRange");
+        const output = document.getElementById("priceOutput");
+        if (slider && output) {
+            output.textContent = slider.value + " €";
+            slider.oninput = function () {
+            output.textContent = this.value + " €";
         };
       }
 
-      const pageContent = document.getElementById('page-content');
-      const modalLogin = document.getElementById('modal-login');
-      const modalSignup = document.getElementById('modal-signup');
-      const modalFaq = document.getElementById('modal-faq');
+        const pageContent = document.getElementById('page-content');
+        const modalLogin = document.getElementById('modal-login');
+        const modalSignup = document.getElementById('modal-signup');
+        const modalFaq = document.getElementById('modal-faq');
+        const modalConf = document.getElementById('modal-confidentialite');
+        const modalCond = document.getElementById('modal-conditions');
+        const modalMentions = document.getElementById('modal-mentions');
+        const modalContact = document.getElementById('modal-contact');
+        const modalServices = document.getElementById('modal-services');
 
-      const openLoginBtn = document.getElementById('open-login');
-      const openSignupBtn = document.getElementById('open-signup');
-      const openSignupCta = document.getElementById('open-signup-cta');
-      const openSignupNav = document.getElementById('open-signup-nav');
-      const openFaqBtn = document.getElementById('open-faq');
 
-      const toSignupLink = document.getElementById('to-signup');
-      const toLoginLink = document.getElementById('to-login');
+        const openLoginBtn = document.getElementById('open-login');
+        const openSignupBtn = document.getElementById('open-signup');
+        const openSignupCta = document.getElementById('open-signup-cta');
+        const openSignupNav = document.getElementById('open-signup-nav');
+        const openFaqBtn = document.getElementById('open-faq');
 
-      function openModal(type) {
-        if (type === 'login') {
-          modalLogin.classList.add('active');
-          modalSignup.classList.remove('active');
-          modalFaq.classList.remove('active');
-        } else if (type === 'signup') {
-          modalSignup.classList.add('active');
-          modalLogin.classList.remove('active');
-          modalFaq.classList.remove('active');
-        } else if (type === 'faq') {
-          modalFaq.classList.add('active');
-          modalLogin.classList.remove('active');
-          modalSignup.classList.remove('active');
+        const toSignupLink = document.getElementById('to-signup');
+        const toLoginLink = document.getElementById('to-login');
+
+        const openConfLink = document.getElementById('open-confidentialite-link');
+        const openConfFooter = document.getElementById('open-confidentialite-footer');
+        const openCondFooter = document.getElementById('open-conditions-footer');
+        const openCondFooterBottom = document.getElementById('open-conditions-footer-bottom');
+        const openMentionsLink = document.getElementById('open-mentions-link');
+        const openContactFooter = document.getElementById('open-contact-footer');
+        const openServicesFooter = document.getElementById('open-services-footer');
+
+        function openModal(type) {
+            // fermer tous les modals
+            if (modalLogin) modalLogin.classList.remove('active');
+            if (modalSignup) modalSignup.classList.remove('active');
+            if (modalFaq) modalFaq.classList.remove('active');
+            if (modalConf) modalConf.classList.remove('active');
+            if (modalCond) modalCond.classList.remove('active');
+            if (modalMentions) modalMentions.classList.remove('active');
+            if (modalContact) modalContact.classList.remove('active');
+            if (modalServices) modalServices.classList.remove('active');
+
+            if (type === 'login' && modalLogin) {
+                modalLogin.classList.add('active');
+            } else if (type === 'signup' && modalSignup) {
+                modalSignup.classList.add('active');
+            } else if (type === 'faq' && modalFaq) {
+                modalFaq.classList.add('active');
+            } else if (type === 'confidentialite' && modalConf) {
+                modalConf.classList.add('active');
+            } else if (type === 'conditions' && modalCond) {
+                modalCond.classList.add('active');
+            } else if (type === 'mentions' && modalMentions) {
+                modalMentions.classList.add('active');
+            } else if (type === 'contact' && modalContact) {
+                modalContact.classList.add('active');
+            } else if (type === 'services' && modalServices) {
+                modalServices.classList.add('active');
+            }
+
+            if (pageContent) pageContent.classList.add('blurred');
         }
-        pageContent.classList.add('blurred');
-      }
 
-      function closeAllModals() {
-        modalLogin.classList.remove('active');
-        modalSignup.classList.remove('active');
-        modalFaq.classList.remove('active');
-        pageContent.classList.remove('blurred');
-      }
+        function closeAllModals() {
+        if (modalLogin) modalLogin.classList.remove('active');
+        if (modalSignup) modalSignup.classList.remove('active');
+        if (modalFaq) modalFaq.classList.remove('active');
+        if (modalConf) modalConf.classList.remove('active');
+        if (modalCond) modalCond.classList.remove('active');
+        if (modalMentions) modalMentions.classList.remove('active');
+        if (modalContact) modalContact.classList.remove('active');
+        if (modalServices) modalServices.classList.remove('active');
+        if (pageContent) pageContent.classList.remove('blurred');
+        }
 
-      openLoginBtn.addEventListener('click', () => openModal('login'));
-      openSignupBtn.addEventListener('click', () => openModal('signup'));
-      openSignupCta.addEventListener('click', () => openModal('signup'));
-      openSignupNav.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('signup');
-      });
-      openFaqBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('faq');
-      });
-
-      toSignupLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('signup');
-      });
-
-      toLoginLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal('login');
-      });
-
-      document.querySelectorAll('.modal-close').forEach(btn => {
-        btn.addEventListener('click', () => {
-          closeAllModals();
+        // Écouteurs pour chaque bouton
+        if (openLoginBtn) openLoginBtn.addEventListener('click', () => openModal('login'));
+        if (openSignupBtn) openSignupBtn.addEventListener('click', () => openModal('signup'));
+        if (openSignupCta) openSignupCta.addEventListener('click', () => openModal('signup'));
+        if (openSignupNav) {
+        openSignupNav.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('signup');
         });
-      });
+        }
+        if (openFaqBtn) {
+        openFaqBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('faq');
+        });
+        }
 
-      [modalLogin, modalSignup, modalFaq].forEach(modal => {
+        if (toSignupLink) {
+        toSignupLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('signup');
+        });
+        }
+        if (toLoginLink) {
+        toLoginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('login');
+        });
+        }
+
+        // Modales légales
+        if (openConfLink) {
+        openConfLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('confidentialite');
+        });
+        }
+        if (openConfFooter) {
+        openConfFooter.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('confidentialite');
+        });
+        }
+        if (openCondFooter) {
+        openCondFooter.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('conditions');
+        });
+        }
+        if (openCondFooterBottom) {
+        openCondFooterBottom.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('conditions');
+        });
+        }
+        if (openMentionsLink) {
+        openMentionsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('mentions');
+        });
+        }
+        if (openContactFooter) {
+        openContactFooter.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('contact');
+        });
+        }
+        if (openServicesFooter) {
+        openServicesFooter.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('services');
+        });
+        }
+
+        // Fermeture des modales (bouton X)
+        document.querySelectorAll('.modal-close').forEach(btn => {
+        btn.addEventListener('click', closeAllModals);
+        });
+
+        // Fermeture au clic sur le fond
+        [modalLogin, modalSignup, modalFaq, modalConf, modalCond, modalMentions, modalContact, modalServices].forEach(modal => {
+        if (!modal) return;
         modal.addEventListener('click', (e) => {
-          if (e.target === modal) {
+            if (e.target === modal) {
             closeAllModals();
-          }
+            }
         });
-      });
+        });
 
-      
-     // --- 1. CONNEXION
+       // --- 1. CONNEXION
 const loginForm = document.querySelector('#modal-login form');
 
 if (loginForm) {
@@ -1682,156 +2193,130 @@ function afficherUtilisateurConnecte() {
 }
 
 document.addEventListener('DOMContentLoaded', afficherUtilisateurConnecte);
-      // ======== DONNÉES FAKE DES PROPRIÉTAIRES ========
-      const proprietaires = {
+        // --- DONNÉES FAKE DES PROPRIÉTAIRES ---
+        const proprietaires = {
         monique: {
-          id: 'monique',
-          nomComplet: 'Monique Dupont',
-          ville: 'Paris 11e',
-          photo: 'Site Web/img/image 11.png',
-          note: 4.8,
-          email: 'monique.dupont@example.com',
-          telephone: '06 12 34 56 78',
-          commentaires: [
+            id: 'monique',
+            nomComplet: 'Monique Dupont',
+            ville: 'Paris 11e',
+            photo: 'img/image 11.png',
+            note: 4.8,
+            email: 'monique.dupont@example.com',
+            telephone: '06 12 34 56 78',
+            commentaires: [
             { auteur: 'Julie', texte: 'Toujours ponctuelle, ses animaux sont adorables.', note: 5 },
             { auteur: 'Paul', texte: 'Communication très facile, maison propre.', note: 4.5 }
-          ],
-          annonces: [
-            {
-              titre: 'Milo – petit chien affectueux',
-              description: 'Besoin de personne de confiance pour faire des promenades avec Milo.',
-              details: 'Prix fixe a la durée de la balade • besoin surtout les samedis.'
-            },
-            {
-              titre: 'Voltaire – chien plein d’énergie',
-              description: 'Cherche un petsitter pour venir garder Voltaire jeudi de 13h à 23h car je suis déplacement.',
-              details: 'Jeudi 13h–23h • 50€ la journée (discutable).'
-            }
-          ]
+            ],
+            annonces: [
+            { titre: 'Milo petit chien affectueux', description: 'Besoin de personne de confiance pour faire des promenades avec Milo.', details: 'Prix fixe à la durée de la balade - besoin surtout les samedis.' },
+            { titre: 'Voltaire chien plein d\'énergie', description: 'Cherche un petsitter pour venir garder Voltaire jeudi de 13h à 23h car je suis déplacement.', details: 'Jeudi 13h-23h - 50€ la journée (discutable).' }
+            ]
         },
         hugo: {
-          id: 'hugo',
-          nomComplet: 'Hugo Martin',
-          ville: 'Issy-les-Moulineaux',
-          photo: 'Site Web/img/image 12.png',
-          note: 4.6,
-          email: 'hugo.martin@example.com',
-          telephone: '06 98 76 54 32',
-          commentaires: [
+            id: 'hugo',
+            nomComplet: 'Hugo Martin',
+            ville: 'Issy-les-Moulineaux',
+            photo: 'img/image 12.png',
+            note: 4.6,
+            email: 'hugo.martin@example.com',
+            telephone: '06 98 76 54 32',
+            commentaires: [
             { auteur: 'Camille', texte: 'Missy est adorable, propriétaire sérieux.', note: 4.5 }
-          ],
-          annonces: [
-            {
-              titre: 'Naya – jeune chienne joueuse',
-              description: 'Promenades régulières en fin de journée.',
-              details: '15€/promenade • horaires flexibles.'
-            },
-            {
-              titre: 'Missy – chat d’appartement',
-              description: 'Besoin de visites quotidiennes (nourriture et câlins).',
-              details: '12€/visite • période flexible.'
-            }
-          ]
+            ],
+            annonces: [
+            { titre: 'Naya jeune chienne joueuse', description: 'Promenades régulières en fin de journée.', details: '15€/promenade - horaires flexibles.' },
+            { titre: 'Missy chat d\'appartement', description: 'Besoin de visites quotidiennes nourriture et câlins.', details: '12€/visite - période flexible.' }
+            ]
         },
         sam: {
-          id: 'sam',
-          nomComplet: 'Sam Leroy',
-          ville: 'Paris 2e',
-          photo: 'Site Web/img/image 13.png',
-          note: 4.9,
-          email: 'sam.leroy@example.com',
-          telephone: '07 11 22 33 44',
-          commentaires: [
-            { auteur: 'Léa', texte: 'Thor est un amour, tout s’est très bien passé.', note: 5 },
+            id: 'sam',
+            nomComplet: 'Sam Leroy',
+            ville: 'Paris 2e',
+            photo: 'img/image 13.png',
+            note: 4.9,
+            email: 'sam.leroy@example.com',
+            telephone: '07 11 22 33 44',
+            commentaires: [
+            { auteur: 'Léa', texte: 'Thor est un amour, tout s\'est très bien passé.', note: 5 },
             { auteur: 'Nina', texte: 'Explications claires, tout est bien organisé.', note: 4.8 }
-          ],
-          annonces: [
-            {
-              titre: 'Sam – chien joueur',
-              description: 'Garde pendant mes vancances.',
-              details: '46€/jour • du 1er au 8 mars.'
-            },
-            {
-              titre: 'Oslo – jeune chat calme',
-              description: 'Chat très doux et affectueux. Disponible ce weekend pour être garder à domicile.',
-              details: '25€/jour • que les week-end.'
-            },
-            {
-              titre: 'Thor – chien calme',
-              description: 'Chien calme qui ne sort pas de sa maison, il faut juste lui donner à manger.',
-              details: '25€/jour • dates flexibles.'
-            }
-          ]
+            ],
+            annonces: [
+            { titre: 'Sam chien joueur', description: 'Garde pendant mes vacances.', details: '46€/jour du 1er au 8 mars.' },
+            { titre: 'Oslo jeune chat calme', description: 'Chat très doux et affectueux. Disponible ce weekend pour être garder à domicile.', details: '25€/jour que les week-end.' },
+            { titre: 'Thor chien calme', description: 'Chien calme qui ne sort pas de sa maison, il faut juste lui donner à manger.', details: '25€/jour - dates flexibles.' }
+            ]
         }
-      };
+        };
 
-      // ======== LOGIQUE D’AFFICHAGE DU PROFIL ========
-      const sectionProfil = document.getElementById('profil-proprietaire');
-      const profilPhoto = document.getElementById('profil-photo');
-      const profilNom = document.getElementById('profil-nom');
-      const profilVille = document.getElementById('profil-ville');
-      const profilNote = document.getElementById('profil-note');
-      const profilContact = document.getElementById('profil-contact');
-      const profilCommentairesListe = document.getElementById('profil-commentaires-liste');
-      const profilAnnoncesListe = document.getElementById('profil-annonces-liste');
-      const btnRetourProfil = document.getElementById('btn-retour-profil');
+        // LOGIQUE D'AFFICHAGE DU PROFIL
+        const sectionProfil = document.getElementById('profil-proprietaire');
+        const profilPhoto = document.getElementById('profil-photo');
+        const profilNom = document.getElementById('profil-nom');
+        const profilVille = document.getElementById('profil-ville');
+        const profilNote = document.getElementById('profil-note');
+        const profilContact = document.getElementById('profil-contact');
+        const profilCommentairesListe = document.getElementById('profil-commentaires-liste');
+        const profilAnnoncesListe = document.getElementById('profil-annonces-liste');
+        const btnRetourProfil = document.getElementById('btn-retour-profil');
 
-      function afficherProfilProprietaire(id) {
+        function afficherProfilProprietaire(id) {
         const p = proprietaires[id];
         if (!p) {
-          alert("Profil introuvable (maquette).");
-          return;
+            alert('Profil introuvable (maquette).');
+            return;
         }
 
         profilPhoto.src = p.photo;
         profilPhoto.alt = p.nomComplet;
         profilNom.textContent = p.nomComplet;
         profilVille.textContent = p.ville;
-        profilNote.textContent = `Note moyenne : ${p.note.toFixed(1)} ★`;
-
+        profilNote.textContent = `Note moyenne ${p.note.toFixed(1)}`;
         profilContact.innerHTML = `
-          📧 <a href="mailto:${p.email}">${p.email}</a><br>
-          📞 <a href="tel:${p.telephone.replace(/ /g, '')}">${p.telephone}</a>
+            <a href="mailto:${p.email}">${p.email}</a><br>
+            <a href="tel:${p.telephone.replace(/\s/g, '')}">${p.telephone}</a>
         `;
 
         profilCommentairesListe.innerHTML = '';
         p.commentaires.forEach(c => {
-          const li = document.createElement('li');
-          li.textContent = `${c.auteur} (${c.note}★) : ${c.texte}`;
-          profilCommentairesListe.appendChild(li);
+            const li = document.createElement('li');
+            li.textContent = `${c.auteur} (${c.note}/5): ${c.texte}`;
+            profilCommentairesListe.appendChild(li);
         });
 
         profilAnnoncesListe.innerHTML = '';
         p.annonces.forEach(a => {
-          const div = document.createElement('div');
-          div.className = 'carte-annonce';
-          div.innerHTML = `
+            const div = document.createElement('div');
+            div.className = 'carte-annonce';
+            div.innerHTML = `
             <h4>${a.titre}</h4>
             <p>${a.description}</p>
-            <p style="color: var(--gray)">${a.details}</p>
-          `;
-          profilAnnoncesListe.appendChild(div);
+            <p style="color: var(--gray);">${a.details}</p>
+            `;
+            profilAnnoncesListe.appendChild(div);
         });
 
         sectionProfil.style.display = 'block';
         sectionProfil.scrollIntoView({ behavior: 'smooth' });
-      }
+        }
 
-      // Boutons "Voir profil"
-      document.querySelectorAll('.btn-profil').forEach(btn => {
+        // Boutons "Voir profil"
+        document.querySelectorAll('.btn-profil').forEach(btn => {
         btn.addEventListener('click', (e) => {
-          const parent = e.target.closest('[data-proprio-id]');
-          if (!parent) return;
-          const id = parent.getAttribute('data-proprio-id');
-          afficherProfilProprietaire(id);
+            const parent = e.target.closest('[data-proprio-id]');
+            if (!parent) return;
+            const id = parent.getAttribute('data-proprio-id');
+            afficherProfilProprietaire(id);
         });
-      });
+        });
 
-      btnRetourProfil.addEventListener('click', () => {
-        sectionProfil.style.display = 'none';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+        if (btnRetourProfil) {
+        btnRetourProfil.addEventListener('click', () => {
+            sectionProfil.style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        }
+
+        document.addEventListener('DOMContentLoaded', afficherUtilisateurConnecte());
     </script>
-
 </body>
 </html>
